@@ -145,7 +145,7 @@ body {
 
     min-width: 980px;
 
-    white-space: pre-wrap;
+    white-space: pre;
 
     word-break: normal;
 
@@ -201,11 +201,15 @@ body {
 
     color: #B863ED;
 
-    font-weight: bold;
+    font-weight: 900;
+
+    letter-spacing: 0;
 
     text-shadow:
-        0 0 6px rgba(184, 99, 237, 0.55),
-        0 0 12px rgba(95, 29, 218, 0.35);
+        0 0 4px #FFFFFF,
+        0 0 8px rgba(184, 99, 237, 0.90),
+        0 0 16px rgba(95, 29, 218, 0.70),
+        0 0 24px rgba(140, 214, 253, 0.20);
 }
 
 
@@ -260,39 +264,6 @@ body {
 .statusline {
 
     color: #33B8FF;
-}
-
-
-.literal-title {
-
-    color: #FFFFFF;
-
-    font-weight: 900;
-
-    font-size: 24px;
-
-    letter-spacing: 2px;
-
-    text-shadow:
-        0 0 8px #FFFFFF,
-        0 0 16px #5F1DDA;
-}
-
-
-.welcome-literal {
-
-    color: #FFFFFF;
-
-    font-weight: 900;
-
-    font-size: 28px;
-
-    letter-spacing: 3px;
-
-    text-shadow:
-        0 0 8px #FFFFFF,
-        0 0 18px #B863ED,
-        0 0 28px #5F1DDA;
 }
 
 
@@ -372,20 +343,6 @@ body {
         width: 38px;
 
         right: calc(100% + 13px);
-
-    }
-
-
-    .literal-title {
-
-        font-size: 20px;
-
-    }
-
-
-    .welcome-literal {
-
-        font-size: 22px;
 
     }
 
@@ -2523,7 +2480,7 @@ system_status {
 <script>
 
 /* ========================================================= */
-/* 5 X 7 BINARY FONT                                         */
+/* 5 X 7 LETTER SHAPES                                       */
 /* ========================================================= */
 
 const FONT = {
@@ -2822,8 +2779,31 @@ const FONT = {
 
 
 /* ========================================================= */
-/* BINARY BANNER BUILDER                                     */
+/* 0 / 1 LETTER BUILDER                                      */
 /* ========================================================= */
+
+/*
+    IMPORTANT:
+
+    The FONT patterns above only define SHAPE.
+
+    0 in a FONT pattern means EMPTY SPACE.
+
+    1 in a FONT pattern means DRAW SOMETHING.
+
+    When a pixel is drawn, it is replaced with either:
+
+        00
+
+    or:
+
+        11
+
+    This means the actual visible title is physically
+    constructed out of 0 and 1 characters.
+
+    The invisible parts remain blank spaces.
+*/
 
 function makeBinaryBanner(text) {
 
@@ -2843,9 +2823,14 @@ function makeBinaryBanner(text) {
 
 
     for (
-        const character
-        of text
+        let characterIndex = 0;
+        characterIndex < text.length;
+        characterIndex++
     ) {
+
+        const character =
+            text[characterIndex];
+
 
         const glyph =
             FONT[character] ||
@@ -2858,9 +2843,47 @@ function makeBinaryBanner(text) {
             row++
         ) {
 
+            for (
+                let column = 0;
+                column < glyph[row].length;
+                column++
+            ) {
+
+                const pixel =
+                    glyph[row][column];
+
+
+                if (
+                    pixel === "1"
+                ) {
+
+                    const useOne =
+                        (
+                            row +
+                            column +
+                            characterIndex
+                        ) % 2 === 0;
+
+
+                    rows[row] +=
+                        useOne
+                            ? "11"
+                            : "00";
+
+                }
+
+                else {
+
+                    rows[row] +=
+                        "  ";
+
+                }
+
+            }
+
+
             rows[row] +=
-                glyph[row] +
-                "  ";
+                "    ";
 
         }
 
@@ -2910,13 +2933,12 @@ const binaryWelcomeTwo =
 const fullSource =
 
 `==============================================================================================================
+
 ${binaryTitleOne}
 
-CYBER_ARENA
 
 ${binaryTitleTwo}
 
-HEX//BREAK
 ==============================================================================================================
 
 ` +
@@ -2926,11 +2948,12 @@ gameFile +
 `
 
 ==============================================================================================================
+
 ${binaryWelcomeOne}
+
 
 ${binaryWelcomeTwo}
 
-WELCOME TO THE ARENA
 ==============================================================================================================
 `;
 
@@ -2956,22 +2979,12 @@ const skipButton =
 /* ========================================================= */
 
 /*
-    This is the important speed control.
+    700 characters per second.
 
-    700 characters per second means:
+    Faster than a normal reader,
+    but slow enough to visibly watch the project file form.
 
-    - much faster than a person normally reads
-    - still slow enough that you can clearly watch the file form
-
-    Lower the number to make it slower.
-
-    Example:
-        500 = slower
-
-    Raise the number to make it faster.
-
-    Example:
-        900 = faster
+    No auto-scroll is used anywhere.
 */
 
 const CHARACTERS_PER_SECOND =
@@ -3036,32 +3049,21 @@ function classifyLine(line) {
         line.trim();
 
 
+    /*
+        Detect binary-art lines.
+
+        These lines contain only:
+        0
+        1
+        spaces
+    */
+
     if (
-        trimmed.length > 15 &&
+        trimmed.length >= 2 &&
         /^[01 ]+$/.test(trimmed)
     ) {
 
         return "binary";
-
-    }
-
-
-    if (
-        trimmed === "CYBER_ARENA" ||
-        trimmed === "HEX//BREAK"
-    ) {
-
-        return "literal-title";
-
-    }
-
-
-    if (
-        trimmed ===
-        "WELCOME TO THE ARENA"
-    ) {
-
-        return "welcome-literal";
 
     }
 
@@ -3265,20 +3267,12 @@ function typingStep() {
 
 
     /*
-        IMPORTANT:
+        NO AUTO SCROLL.
 
-        THERE IS NO AUTO SCROLL HERE.
+        Nothing in this function moves the page.
 
-        The page does not call:
-
-            window.scrollTo()
-
-        scrollIntoView()
-
-        or any other scrolling command.
-
-        You can scroll anywhere you want while
-        the project file keeps typing independently.
+        The visitor can remain anywhere they want
+        while the file continues writing.
     */
 
 
