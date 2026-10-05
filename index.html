@@ -33,7 +33,7 @@ body {
             circle at top,
             #0B0625 0%,
             #030108 30%,
-            #000000 70%
+            #000000 75%
         );
 
     color: #DCCEF0;
@@ -48,7 +48,7 @@ body {
 
 
 /* ========================================================= */
-/* HEXCORE TOP STATUS BAR                                    */
+/* TOP STATUS BAR                                            */
 /* ========================================================= */
 
 #topbar {
@@ -57,7 +57,7 @@ body {
 
     top: 0;
 
-    z-index: 50;
+    z-index: 100;
 
     display: flex;
 
@@ -65,17 +65,17 @@ body {
 
     align-items: center;
 
-    gap: 16px;
+    gap: 14px;
 
     padding: 10px 14px;
 
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.96);
 
     border-bottom: 1px solid #5F1DDA;
 
     box-shadow:
-        0 0 12px rgba(95, 29, 218, 0.25),
-        0 0 24px rgba(140, 214, 253, 0.08);
+        0 0 10px rgba(95, 29, 218, 0.35),
+        0 0 22px rgba(140, 214, 253, 0.08);
 }
 
 
@@ -85,7 +85,7 @@ body {
 
     font-size: 12px;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 
     white-space: nowrap;
 }
@@ -114,7 +114,7 @@ body {
 
 
 /* ========================================================= */
-/* CODE VIEWER                                               */
+/* VIEWER                                                    */
 /* ========================================================= */
 
 #viewer {
@@ -124,7 +124,7 @@ body {
     overflow-x: auto;
 
     padding:
-        24px
+        20px
         0
         80px
         0;
@@ -139,9 +139,9 @@ body {
 
     padding:
         0
-        26px
+        24px
         0
-        76px;
+        78px;
 
     min-width: 980px;
 
@@ -183,7 +183,7 @@ body {
 
     right: calc(100% + 18px);
 
-    width: 46px;
+    width: 48px;
 
     text-align: right;
 
@@ -194,12 +194,24 @@ body {
 
 
 /* ========================================================= */
-/* HEXCORE CODE COLORS                                       */
+/* CODE COLORS                                               */
 /* ========================================================= */
 
-.comment {
+.binary {
 
-    color: #936FCD;
+    color: #B863ED;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 6px rgba(184, 99, 237, 0.55),
+        0 0 12px rgba(95, 29, 218, 0.35);
+}
+
+
+.divider {
+
+    color: #5F1DDA;
 }
 
 
@@ -225,17 +237,17 @@ body {
 }
 
 
-.value {
-
-    color: #F08CFF;
-}
-
-
 .boolean {
 
     color: #8CD6FD;
 
     font-weight: bold;
+}
+
+
+.comment {
+
+    color: #936FCD;
 }
 
 
@@ -245,82 +257,42 @@ body {
 }
 
 
-.system {
+.statusline {
 
     color: #33B8FF;
 }
 
 
-.divider {
-
-    color: #5F1DDA;
-}
-
-
-.mega-title {
+.literal-title {
 
     color: #FFFFFF;
 
-    font-size: 64px;
-
-    line-height: 1.05;
-
     font-weight: 900;
 
-    letter-spacing: 5px;
+    font-size: 24px;
+
+    letter-spacing: 2px;
 
     text-shadow:
-        0 0 7px #FFFFFF,
-        0 0 16px #8CD6FD,
-        0 0 26px #5F1DDA;
-
-    margin-top: 20px;
-
-    margin-bottom: 4px;
+        0 0 8px #FFFFFF,
+        0 0 16px #5F1DDA;
 }
 
 
-.mega-mode {
-
-    color: #B863ED;
-
-    font-size: 54px;
-
-    line-height: 1.05;
-
-    font-weight: 900;
-
-    letter-spacing: 6px;
-
-    text-shadow:
-        0 0 8px #B863ED,
-        0 0 18px #5F1DDA,
-        0 0 28px #8CD6FD;
-
-    margin-bottom: 20px;
-}
-
-
-.mega-ending {
+.welcome-literal {
 
     color: #FFFFFF;
 
-    font-size: 58px;
-
-    line-height: 1.15;
-
     font-weight: 900;
 
-    letter-spacing: 5px;
+    font-size: 28px;
+
+    letter-spacing: 3px;
 
     text-shadow:
         0 0 8px #FFFFFF,
         0 0 18px #B863ED,
-        0 0 30px #5F1DDA;
-
-    margin-top: 28px;
-
-    margin-bottom: 28px;
+        0 0 28px #5F1DDA;
 }
 
 
@@ -332,7 +304,7 @@ body {
 
     animation:
         blink
-        0.75s
+        0.7s
         steps(1)
         infinite;
 }
@@ -382,15 +354,15 @@ body {
 
     #code {
 
+        min-width: 820px;
+
         font-size: 12px;
 
         line-height: 1.5;
 
-        min-width: 760px;
+        padding-left: 62px;
 
-        padding-left: 60px;
-
-        padding-right: 16px;
+        padding-right: 14px;
 
     }
 
@@ -399,34 +371,21 @@ body {
 
         width: 38px;
 
-        right: calc(100% + 14px);
+        right: calc(100% + 13px);
 
     }
 
 
-    .mega-title {
+    .literal-title {
 
-        font-size: 46px;
-
-        letter-spacing: 3px;
+        font-size: 20px;
 
     }
 
 
-    .mega-mode {
+    .welcome-literal {
 
-        font-size: 40px;
-
-        letter-spacing: 3px;
-
-    }
-
-
-    .mega-ending {
-
-        font-size: 42px;
-
-        letter-spacing: 3px;
+        font-size: 22px;
 
     }
 
@@ -443,7 +402,7 @@ body {
 <div id="topbar">
 
     <div id="status">
-        HEXCORE GAMING // READ ONLY PROJECT DATABASE
+        HEXCORE GAMING // CONNECTING...
     </div>
 
     <button
@@ -465,27 +424,28 @@ body {
 
 <script
     type="text/plain"
-    id="source"
+    id="game-file"
 >
-==============================================================================================================
-CYBER_ARENA
-HEX//BREAK
-==============================================================================================================
 
+==============================================================================================================
 HEXCORE GAMING // PROJECT DATABASE
+==============================================================================================================
 
-FILE = Cyber_Arena HEX//BREAK
-ACCESS = READ ONLY
-STATUS = IN DEVELOPMENT
+FILE = "Cyber_Arena HEX//BREAK"
+ACCESS = "READ ONLY"
+DEVELOPMENT_STATUS = "IN DEVELOPMENT"
+
 
 SYSTEM_BOOT {
 
     initializing_arena_network = TRUE
     calibrating_personal_gravity = TRUE
-    loading_hexcore_protocol = TRUE
+    locating_hexcore_signal = TRUE
+    loading_HEX//BREAK_protocol = TRUE
     verifying_combat_systems = TRUE
 
 }
+
 
 ==============================================================================================================
 TABLE OF CONTENTS
@@ -540,37 +500,69 @@ PROJECT OVERVIEW
 project Cyber_Arena_HEX_BREAK {
 
     title = "Cyber_Arena HEX//BREAK"
+
     genre = "Fast, skill-based arena FPS"
+
     engine = "Unreal Engine"
-    development = "Blueprint-focused"
+
+    development_style = "Blueprint-focused"
+
     primary_mode = "HEX//BREAK"
+
 
     overview {
 
-        Cyber_Arena HEX//BREAK is a fast, skill-based arena FPS built around extreme movement,
-        local-gravity traversal, and the HEX//BREAK objective mode.
+        Cyber_Arena HEX//BREAK is a fast, skill-based arena FPS built around
+        extreme movement, local-gravity traversal, and the HEX//BREAK objective mode.
 
-        The game blends cyberpunk technology, fantasy, medieval influences, magical energy,
-        gladiatorial aesthetics, and cosmic science fiction into a competitive arena setting
-        where Human and Elven gladiators fight for the entertainment of massive cosmic beings.
+        The game blends cyberpunk technology, fantasy, medieval influences,
+        magical energy, gladiatorial aesthetics, and cosmic science fiction
+        into a competitive arena setting.
 
-        Cyber_Arena HEX//BREAK is being built in Unreal Engine as a Blueprint-focused project,
-        with a strong emphasis on player skill rather than automated assistance.
+        Human and Elven gladiators fight inside futuristic arenas for the
+        entertainment of massive cosmic beings and spectators.
+
+        The game is being built in Unreal Engine as a Blueprint-focused project.
+
+        Player skill is prioritized over automated assistance.
 
     }
+
 
     skill_philosophy {
 
         aim_assist = DISABLED
+
         auto_kill = DISABLED
+
         poor_aim_reward = DISABLED
+
         poor_movement_reward = DISABLED
 
-        core_rule {
 
-            Mastering movement, positioning, weapons, gadgets, abilities,
-            personal gravity, objective strategy, and the arena itself
-            should determine who wins.
+        victory_should_be_determined_by {
+
+            movement
+            positioning
+            weapons
+            gadgets
+            abilities
+            personal_gravity
+            objective_control
+            arena_knowledge
+            timing
+            decision_making
+            execution
+
+        }
+
+
+        rule {
+
+            The player who better masters the game's systems
+            should have the advantage.
+
+            The game should not play itself for the player.
 
         }
 
@@ -587,11 +579,12 @@ setting {
 
     location = "Futuristic arenas floating in space"
 
+
     visual_style {
 
         cyberpunk
         futuristic_technology
-        medieval_fantasy_influence
+        medieval_fantasy_influences
         magical_energy
         gladiatorial_aesthetics
         neon_purple
@@ -605,19 +598,28 @@ setting {
 
     }
 
+
     civilization {
 
         The world represents a fantasy civilization that has effectively
         been overtaken and transformed by cyber technology.
 
+        Fantasy and cyberpunk are not simply placed beside each other.
+
+        They have merged.
+
     }
+
 
     arena_purpose {
 
-        The arenas exist primarily as entertainment for cosmic beings and spectators,
-        giving matches a futuristic gladiator-sport feeling.
+        The arenas exist primarily as entertainment for cosmic beings
+        and spectators.
+
+        Matches therefore have a futuristic gladiator-sport identity.
 
     }
+
 
     presentation {
 
@@ -632,6 +634,17 @@ setting {
 
     }
 
+
+    identity {
+
+        The players are gladiators.
+
+        The arena is the stage.
+
+        The universe is the audience.
+
+    }
+
 }
 
 
@@ -643,8 +656,11 @@ movement {
 
     Movement is one of the defining features of Cyber_Arena HEX//BREAK.
 
-    Players move extremely quickly and are intended to chain movement together aggressively
-    rather than slowly navigate traditional FPS maps.
+    Players move extremely quickly.
+
+    The game is intended to reward aggressively chaining movement
+    instead of slowly navigating traditional FPS maps.
+
 
     base_movement {
 
@@ -662,11 +678,19 @@ movement {
 
     }
 
+
     standard_sprint = REMOVED
 
-    Base movement is substantially faster instead.
 
-    possible_future_sprint_gadget = TRUE
+    sprint_rule {
+
+        Base movement is substantially faster instead.
+
+        Speed is part of the normal movement language.
+
+        Sprint may eventually return as an optional movement gadget.
+
+    }
 
 }
 
@@ -677,11 +701,12 @@ PERSONAL GRAVITY / EVERY-SURFACE MOVEMENT
 
 personal_gravity {
 
-    type = "Surface-relative gravity"
+    system_type = "Surface-relative personal gravity"
 
     universal_world_up = FALSE
 
-    orientation_sequence {
+
+    gravity_sequence {
 
         Current_Floor_Surface
             |
@@ -699,11 +724,13 @@ personal_gravity {
 
     }
 
+
     normal_floor {
 
         floor = DOWN
 
     }
+
 
     wall {
 
@@ -711,44 +738,57 @@ personal_gravity {
 
     }
 
+
     ceiling {
 
         ceiling = DOWN
 
     }
 
+
     player_perspective {
 
-        The player always experiences their registered surface as down.
+        From the player's perspective, they remain upright.
 
     }
+
 
     multiplayer_example {
 
-        player_A = "Standing on floor"
-        player_B = "Running on vertical wall"
-        player_C = "Running upside down across ceiling"
+        player_A = "Standing on a normal floor"
 
-        All three players experience their own surface as down.
+        player_B = "Running normally on a vertical wall"
+
+        player_C = "Running upside down across the ceiling"
+
+        result = "All three experience their own surface as down"
 
     }
+
 
     attachment {
 
         continuous_button_required = FALSE
-        automatic_attachment_after_valid_contact = TRUE
+
+        attachment_persists_after_valid_contact = TRUE
 
     }
 
-    surface_change {
 
-        A player must leave the current surface and physically contact another valid surface.
+    changing_surfaces {
 
-        Simply passing near another wall does not change gravity.
+        step_01 = "Leave current surface"
+
+        step_02 = "Travel away from current surface"
+
+        step_03 = "Physically contact another valid surface"
+
+        passing_near_another_surface_changes_gravity = FALSE
 
     }
 
-    transfer {
+
+    transfer_example {
 
         Player_leaves_Surface_A
             |
@@ -766,14 +806,16 @@ personal_gravity {
 
     }
 
+
     missed_surface {
 
-        If the player misses every surface, they continue falling according to the
-        gravity orientation of their previous surface.
+        If the player misses every surface, they continue falling
+        according to their previous gravity frame.
 
         automatic_world_down_reset = FALSE
 
     }
+
 
     curved_surfaces {
 
@@ -790,11 +832,12 @@ personal_gravity {
 
     }
 
+
     hard_edges {
 
         automatic_corner_wrapping = FALSE
 
-        A cube does not automatically pull the player around its corners.
+        A cube does not automatically pull the player around corners.
 
     }
 
@@ -809,39 +852,61 @@ movement_gadgets {
 
     equipped_slots = 1
 
+
     Mega_Jump {
 
         jump_height = "Approximately 5X normal jump height"
+
         charges = 4
-        charge_regeneration = "Approximately 5 seconds after use"
-        independent_charge_regeneration = TRUE
+
+        charge_regeneration = "Approximately 5 seconds"
+
+        each_charge_regenerates_independently = TRUE
 
     }
+
 
     Grapple {
 
-        maximum_reach = "Approximately 60 meters"
+        maximum_range = "Approximately 60 meters"
+
         charges = 3
+
         charge_regeneration = "Approximately 5 seconds"
 
     }
+
 
     Dash {
 
         distance = "Approximately 10 meters"
+
         charges = 5
+
         charge_regeneration = "Approximately 5 seconds"
 
         automatic_edge_wrapping = FALSE
 
-        If the player dashes off an edge, forward momentum continues
-        and the player falls according to their existing personal gravity.
+
+        edge_behavior {
+
+            forward_momentum_continues = TRUE
+
+            existing_gravity_remains_active = TRUE
+
+            player_falls_according_to_existing_gravity = TRUE
+
+        }
 
     }
 
+
     Possible_Sprint_Gadget {
 
+        status = POSSIBLE
+
         boost_duration = "Roughly 3 seconds"
+
         cooldown = "Roughly 10 seconds"
 
     }
@@ -856,17 +921,22 @@ ABILITY SYSTEM
 ability_system {
 
     equipped_slots = 3
+
     empty_slots_allowed = TRUE
+
     loadout_swapping = PLANNED
 
 
     Lightning_Taze {
 
         duration = "Approximately 3 seconds"
+
         cooldown = "Approximately 10 seconds"
+
         effect = "Complete incapacitation"
 
-        disabled_actions {
+
+        disables {
 
             movement
             camera_rotation
@@ -883,7 +953,9 @@ ability_system {
     Purple_Sludge {
 
         movement_speed_reduction = "Approximately 30 percent"
+
         duration = "Approximately 5 seconds"
+
         cooldown = "Approximately 10 seconds"
 
     }
@@ -892,8 +964,11 @@ ability_system {
     Heal {
 
         health_restored = "Approximately 30 HP"
+
         ally_range = "Approximately 5 meters"
+
         cooldown = "Approximately 10 seconds"
+
 
         valid_targets {
 
@@ -901,6 +976,7 @@ ability_system {
             nearby_allies
 
         }
+
 
         can_exceed_maximum_health = FALSE
 
@@ -910,12 +986,15 @@ ability_system {
     Blue_Shield_Bubble {
 
         shield_capacity = "Approximately 30 damage"
+
         maximum_duration = "Approximately 5 seconds"
+
         cooldown = "Approximately 10 seconds"
 
-        shield_ends_when {
 
-            health_depleted
+        ends_when {
+
+            shield_health_is_depleted
 
             OR
 
@@ -923,7 +1002,8 @@ ability_system {
 
         }
 
-        cooldown_begins_after_shield_ends = TRUE
+
+        cooldown_begins_when_shield_ends = TRUE
 
     }
 
@@ -938,12 +1018,20 @@ player_health {
 
     standard_maximum_hp = 100
 
-    cross_platform_console_health_adjustment {
+
+    cross_platform_balance {
+
+        possible_console_health_allowance = TRUE
 
         finalized = FALSE
 
-        Console players may receive additional health during cross-platform matches
-        if testing proves PC input creates too large of an advantage.
+
+        condition {
+
+            This would only be considered if testing proves PC input
+            creates too large of an advantage during cross-platform play.
+
+        }
 
     }
 
@@ -956,13 +1044,14 @@ WEAPONS
 
 weapons {
 
-    families {
+    broad_weapon_families {
 
         firearms
         medieval_melee
         magic
 
     }
+
 
     eventual_range_categories {
 
@@ -976,9 +1065,13 @@ weapons {
     Uzi_Machine_Gun {
 
         magazine = 30
+
         body_damage_per_bullet = "Approximately 10"
-        full_magazine_body_damage = "Approximately 300"
-        role = "Close range"
+
+        total_body_damage_per_magazine = "Approximately 300"
+
+        intended_range = "Close range"
+
         precision = "Lower than rifle"
 
     }
@@ -987,11 +1080,16 @@ weapons {
     Semi_Auto_Rifle {
 
         magazine = 10
+
         body_damage = "Approximately 34"
+
         three_body_shots = 102
+
         headshot_damage = "Approximately 100"
+
         one_shot_headshot = TRUE
-        role = "Precision / long-range"
+
+        intended_role = "Precision / long-range"
 
     }
 
@@ -1004,19 +1102,22 @@ MELEE WEAPON MOVEMENT
 
 melee_weapon_movement {
 
-    melee_weapons_may_be_thrown = TRUE
+    melee_weapons_can_be_thrown = TRUE
 
-    after_throw {
 
-        option_A = "Teleport to weapon"
-        option_B = "Recall weapon to hand"
+    after_throw_options {
+
+        teleport_to_weapon
+
+        recall_weapon_to_hand
 
     }
 
+
     purpose {
 
-        This connects melee combat with traversal rather than treating
-        melee weapons purely as close-range combat tools.
+        Melee weapons can function as traversal tools
+        instead of being purely close-range combat weapons.
 
     }
 
@@ -1031,30 +1132,40 @@ assassinations {
 
     enabled = TRUE
 
+
     requirements {
 
         attacker_position = "Behind enemy"
+
         range = "Close assassination range"
+
         enemy_health = "70 percent or lower"
 
     }
 
+
     current_100_hp_threshold = "70 HP or below"
+
 
     server_validation {
 
-        health
-        angle
-        distance
+        target_health
+        attacker_angle
+        attacker_distance
 
     }
 
-    initial_demo_animation_count = 1
+
+    demo_animation_count = 1
+
     additional_future_animations = TRUE
+
 
     gravity_support {
 
-        Positioning must be calculated relative to the target's own orientation.
+        Positioning is calculated relative to the target's
+        own orientation rather than world-up.
+
 
         possible_locations {
 
@@ -1081,9 +1192,11 @@ mode HEX_BREAK {
 
     objective = "Hexcore"
 
+
     Hexcore {
 
         approximate_size = "Human-head sized"
+
 
         visual_components {
 
@@ -1103,10 +1216,13 @@ mode HEX_BREAK {
 
     }
 
+
     carrier_effect {
 
         purple_energy = TRUE
+
         electric_blue_energy = TRUE
+
         immediately_identifiable = TRUE
 
     }
@@ -1122,7 +1238,8 @@ HEX_BREAK_possession {
 
     fixed_base_objective = FALSE
 
-    players_can {
+
+    player_actions {
 
         chase_carrier
         steal_hexcore
@@ -1136,7 +1253,9 @@ HEX_BREAK_possession {
 
     }
 
+
     minimap_required = FALSE
+
     radar_required = FALSE
 
     carrier_visibility = ALWAYS_VISIBLE
@@ -1152,26 +1271,33 @@ hexcore_carry_limit {
 
     maximum_hold_time = "Approximately 20 seconds"
 
+
     instability_window {
 
         start = "Approximately 15 seconds"
+
         end = "Approximately 20 seconds"
 
         visual_effects_escalate = TRUE
 
     }
 
+
     overload {
 
         activation = "Approximately 20 seconds"
-        damage = "Approximately 80 percent of maximum health"
+
+        carrier_damage = "Approximately 80 percent of maximum health"
 
     }
+
 
     corrupted_state {
 
         duration = "Approximately 5 seconds"
+
         color = RED
+
 
         dangerous_actions {
 
@@ -1180,6 +1306,7 @@ hexcore_carry_limit {
             grabbing
 
         }
+
 
         contact_damage = "Approximately another 80 percent of maximum health"
 
@@ -1196,17 +1323,22 @@ nexus_ports {
 
     appear_around_arena = TRUE
 
+
     carrier_reaches_port {
 
         team_score_reward = "Approximately +30 seconds"
 
     }
 
-    scoring_visual_event {
+
+    visual_event {
 
         world_can_glitch = TRUE
+
         world_can_fragment = TRUE
-        reality_can_appear_corrupted = TRUE
+
+        world_can_appear_corrupted = TRUE
+
         automatic_repair = TRUE
 
     }
@@ -1227,9 +1359,11 @@ match_formats {
 
     }
 
-    team_target = "5v5"
 
-    lower_population_scaling {
+    current_team_target = "5v5"
+
+
+    population_scaling {
 
         5v5
         4v4
@@ -1239,7 +1373,8 @@ match_formats {
 
     }
 
-    intentional_uneven_teams = FALSE
+
+    intentionally_uneven_teams = FALSE
 
 }
 
@@ -1252,6 +1387,7 @@ magic_arm {
 
     type = "Cyber / magical multi-purpose arm"
 
+
     eventual_actions {
 
         grapple_to_surfaces
@@ -1262,6 +1398,7 @@ magic_arm {
         launch_hexcore
 
     }
+
 
     charged_hexcore_launch = "Approximately 60 feet"
 
@@ -1276,19 +1413,17 @@ respawning {
 
     base_timer = "Approximately 10 seconds"
 
-    while_dead {
 
-        every_teammate_kill {
+    teammate_kill_effect {
 
-            remaining_respawn_timer -= "Approximately 2 seconds"
-
-        }
+        remaining_respawn_timer -= "Approximately 2 seconds"
 
     }
 
+
     if_timer_reaches_zero = "Immediate respawn"
 
-    spawning_style = "Neutral"
+    spawn_style = "Neutral"
 
 }
 
@@ -1299,10 +1434,10 @@ MAP PHILOSOPHY
 
 map_philosophy {
 
-    Cyber_Arena HEX//BREAK maps are built around movement rather than
-    conventional flat FPS geometry.
+    maps_are_built_around_movement = TRUE
 
-    every_usable_surface_can_be_floor = TRUE
+    every_usable_surface_can_be_a_floor = TRUE
+
 
     possible_geometry {
 
@@ -1322,7 +1457,8 @@ map_philosophy {
 
     }
 
-    core_rule {
+
+    rule {
 
         The arena itself is part of the combat.
 
@@ -1339,6 +1475,7 @@ demo_map_01 {
 
     structure = "Large floating arena inside giant spherical structure"
 
+
     contains {
 
         central_arena
@@ -1350,12 +1487,14 @@ demo_map_01 {
 
     }
 
+
     sphere_appearance = "Multicolored neon cyber-tech / circuitry"
+
 
     current_status {
 
-        The map is structurally considered essentially complete once
-        current visual, spawn, and respawn issues are repaired.
+        The map is structurally considered essentially complete
+        once current visual, spawn, and respawn issues are repaired.
 
         Once repaired, the geometry is intended to remain largely untouched.
 
@@ -1372,7 +1511,8 @@ map_02 {
 
     primary_structure = "Giant Mobius strip"
 
-    design {
+
+    identity {
 
         The Mobius strip acts as the primary track.
 
@@ -1380,6 +1520,7 @@ map_02 {
         while remaining open enough for strategic combat.
 
     }
+
 
     player_options {
 
@@ -1392,6 +1533,7 @@ map_02 {
         attack_from_different_orientations
 
     }
+
 
     structure {
 
@@ -1409,6 +1551,7 @@ map_02 {
 
     }
 
+
     predictable_moving_structures {
 
         rotating_rings
@@ -1421,13 +1564,17 @@ map_02 {
 
     }
 
+
     movement_should_be_predictable = TRUE
+
 
     purpose {
 
-        Players should be able to learn timings and use them skillfully.
+        Players should be able to learn timings
+        and use that knowledge skillfully.
 
     }
+
 
     development_rule {
 
@@ -1444,11 +1591,16 @@ AI BOTS
 
 AI_bots {
 
+    included = TRUE
+
+
     purpose {
 
-        Cyber_Arena HEX//BREAK remains playable even without human opponents.
+        Cyber_Arena HEX//BREAK remains playable
+        even without human opponents.
 
     }
+
 
     demo_difficulties {
 
@@ -1458,6 +1610,7 @@ AI_bots {
         Expert
 
     }
+
 
     difficulty_affects {
 
@@ -1470,8 +1623,11 @@ AI_bots {
 
     }
 
+
     hidden_health_cheats = FALSE
+
     hidden_damage_cheats = FALSE
+
 
     eventual_bot_knowledge {
 
@@ -1482,7 +1638,7 @@ AI_bots {
         abilities
         HEX//BREAK
         hexcore_interception
-        nexus_ports
+        Nexus_Ports
 
     }
 
@@ -1499,6 +1655,7 @@ HEX_FORGE {
 
     purpose = "Player-accessible map-building system"
 
+
     starting_environment {
 
         empty_space_environment
@@ -1506,6 +1663,7 @@ HEX_FORGE {
         approved_object_library
 
     }
+
 
     player_actions {
 
@@ -1517,7 +1675,7 @@ HEX_FORGE {
         possible_free_placement
         build_maps
         place_spawn_points
-        place_HEX_BREAK_objectives
+        place_HEX//BREAK_objectives
         save_maps
         load_maps
         test_maps
@@ -1525,16 +1683,18 @@ HEX_FORGE {
 
     }
 
+
     spawn_configuration {
 
         neutral_spawn
-        team_A_spawn
-        team_B_spawn
+        Team_A_spawn
+        Team_B_spawn
         FFA_spawn_pools
 
     }
 
-    personal_gravity_effect {
+
+    gravity_effect {
 
         Even simple structures can create complicated gameplay.
 
@@ -1557,14 +1717,16 @@ blender_lab {
 
     purpose {
 
-        Before HEX//FORGE is built, there will be a developer-focused Blender Lab.
+        Before HEX//FORGE is built, there will be a developer-focused
+        Blender Lab.
 
         Reusable structures can be generated, reviewed, modified,
-        and promoted into the game's asset library.
+        approved, and promoted into the game's asset library.
 
     }
 
-    example_molds {
+
+    architectural_molds {
 
         small_buildings
         medium_buildings
@@ -1576,6 +1738,7 @@ blender_lab {
         platforms
 
     }
+
 
     initial_design {
 
@@ -1589,6 +1752,7 @@ blender_lab {
 
     }
 
+
     initial_exclusions {
 
         balconies = FALSE
@@ -1600,10 +1764,12 @@ blender_lab {
 
     }
 
+
     purpose = "Building molds"
 
-    Individual structures can be numbered so approved designs can later
-    become reusable finished game assets.
+
+    Individual structures can be numbered so approved designs
+    can later become reusable game assets.
 
 }
 
@@ -1621,12 +1787,14 @@ character_creation {
 
     }
 
+
     initial_races {
 
         Humans
         Elves
 
     }
+
 
     customization {
 
@@ -1638,10 +1806,11 @@ character_creation {
 
     }
 
+
     later_non_human_designs {
 
         More extreme non-human appearances can eventually exist as skins
-        rather than infinitely modifying the basic Human and Elf structures.
+        rather than infinitely modifying the base Human and Elf structures.
 
     }
 
@@ -1668,16 +1837,21 @@ ranked_play {
 
     }
 
+
     progression {
 
         win = "+10 percent"
+
         loss = "-10 percent"
 
         hidden_performance_multiplier = FALSE
+
         kills_change_progress = FALSE
+
         streaks_change_progress = FALSE
 
     }
+
 
     matchmaking {
 
@@ -1685,12 +1859,14 @@ ranked_play {
 
     }
 
+
     Godbreaker {
 
-        A single top-ranked Godbreaker is considered a distinction,
-        not automatically a matchmaking failure.
+        A single top-ranked Godbreaker is considered
+        a distinction rather than automatically a matchmaking failure.
 
     }
+
 
     Rank_of_Fame {
 
@@ -1716,18 +1892,21 @@ ranked_bots {
 
     automatically_inserted = FALSE
 
+
     insufficient_population {
 
         player_vote {
 
             option_A = "Continue with available humans"
+
             option_B = "Fill remaining positions with bots"
 
         }
 
     }
 
-    tie_vote {
+
+    tied_vote {
 
         one_voter_from_each_side_fights_1v1 = TRUE
 
@@ -1745,7 +1924,9 @@ QUICKPLAY
 quickplay {
 
     ranked = FALSE
+
     matchmaking = OPEN
+
     cross_platform = TRUE
 
 }
@@ -1769,6 +1950,7 @@ social_systems {
         direct_connect_options
 
     }
+
 
     organization_labels {
 
@@ -1800,6 +1982,7 @@ death_presentation {
 
     duration = "Approximately 0.5 to 0.9 seconds"
 
+
     sequence {
 
         body_briefly_locks_or_glitches
@@ -1810,6 +1993,7 @@ death_presentation {
         residual_distortion_fades
 
     }
+
 
     corpse_left_behind = FALSE
 
@@ -1827,9 +2011,13 @@ PERMANENT PUBLIC DEMO
 public_demo {
 
     price = FREE
+
     offline = TRUE
+
     playable_against_bots = TRUE
+
     online_access = FALSE
+
 
     planned_content {
 
@@ -1846,14 +2034,16 @@ public_demo {
 
     }
 
+
     snapshot_rule {
 
-        Once considered finished, the demo becomes a permanent snapshot
-        of Cyber_Arena HEX//BREAK at that stage of development.
+        Once considered finished, the demo becomes
+        a permanent snapshot of Cyber_Arena HEX//BREAK.
 
         regular_game_updates = FALSE
 
     }
+
 
     possible_future_exception {
 
@@ -1870,27 +2060,36 @@ ALPHA / ACTIVE GAME
 
 active_alpha {
 
+    access = "Early Access"
+
     price = "$20"
+
     online = TRUE
+
     multiplayer = TRUE
+
     continuous_updates = TRUE
+
 
     receives {
 
         future_maps
         future_systems
-        additional_content
+        new_content
         multiplayer_improvements
         balance_changes
         bug_fixes
 
     }
 
+
     evolves_into_full_release = TRUE
+
 
     private_testing_copy {
 
         planned_for_friend = TRUE
+
 
         testing_can_include {
 
@@ -1917,9 +2116,11 @@ pricing {
     permanent_public_demo {
 
         price = "$0"
+
         status = FREE
 
     }
+
 
     alpha_early_access {
 
@@ -1927,19 +2128,23 @@ pricing {
 
     }
 
+
     full_release {
 
         price = "$40"
 
     }
 
+
     free_to_play_transition {
 
         threshold = "300,000 paid copies sold"
 
+
         after_threshold {
 
             purchase_price = "$0"
+
             game_status = "Permanently free-to-play"
 
         }
@@ -1956,23 +2161,36 @@ NO REAL-MONEY IN-GAME PURCHASES
 monetization {
 
     real_money_in_game_store = FALSE
+
     microtransactions = FALSE
+
     paid_cosmetics = FALSE
+
     paid_currency = FALSE
+
     paid_weapons = FALSE
+
     paid_abilities = FALSE
+
     paid_gameplay_boosts = FALSE
+
     paid_power = FALSE
+
     paid_battle_pass = FALSE
+
     loot_boxes = FALSE
+
     pay_to_win = FALSE
+
 
     cosmetics {
 
         earned_through_gameplay = TRUE
+
         sold_for_real_money = FALSE
 
     }
+
 
     free_to_play_rule {
 
@@ -2070,6 +2288,7 @@ accessibility {
 
     }
 
+
     colorblind_options {
 
         Off
@@ -2079,6 +2298,7 @@ accessibility {
         possible_strength_intensity_adjustment
 
     }
+
 
     important_information_must_not_rely_only_on_color = TRUE
 
@@ -2100,12 +2320,13 @@ developers_note {
             website_location
             Discord_location
             future_plans
-            alpha_and_full_game_are_actively_developed
+            active_alpha_and_full_game_information
             possible_future_VR_support
 
         }
 
     }
+
 
     alpha_note {
 
@@ -2120,6 +2341,7 @@ developers_note {
         }
 
     }
+
 
     possible_future_features {
 
@@ -2137,7 +2359,9 @@ WORLD DESTRUCTION
 world_destruction {
 
     planned_for_future_full_game = TRUE
+
     required_for_current_demo = FALSE
+
 
     possible_systems {
 
@@ -2150,9 +2374,11 @@ world_destruction {
 
     }
 
+
     personal_gravity_interaction {
 
-        A destructible wall might literally be another player's current floor.
+        A destructible wall might literally
+        be another player's current floor.
 
     }
 
@@ -2167,10 +2393,11 @@ player_ownership {
 
     philosophy {
 
-        Cyber_Arena HEX//BREAK should remain playable even if official
-        company infrastructure eventually disappears.
+        Cyber_Arena HEX//BREAK should remain playable
+        even if official company infrastructure eventually disappears.
 
     }
+
 
     long_term_support {
 
@@ -2184,6 +2411,7 @@ player_ownership {
         possible_dedicated_server_software
 
     }
+
 
     goal {
 
@@ -2205,21 +2433,31 @@ overall_identity {
     where mastery of impossible movement, player-relative gravity,
     combat tools, and HEX//BREAK possession strategy determines the match.
 
+
     arena_rule {
 
         The arena itself is part of the combat.
 
     }
 
+
     example {
 
         player_A = "Sprinting down a track"
+
         player_B = "Running normally along a wall"
+
         player_C = "Running upside down across the ceiling"
+
 
         All three experience different personal gravity directions.
 
+        All three feel upright from their own perspective.
+
+        All three can attack each other.
+
     }
+
 
     defining_systems {
 
@@ -2227,22 +2465,32 @@ overall_identity {
         personal_gravity
         Hexcore
         HEX//BREAK
+        Nexus_Ports
         movement_gadgets
         weapons
+        magic
         abilities
         assassinations
-        unusual_maps
+        Magic_Arm
+        moving_arenas
+        impossible_architecture
+        AI_bots
+        ranked_play
+        Quickplay
         HEX//FORGE
         player_created_arenas
+        player_hosted_multiplayer
+        long_term_player_ownership
 
     }
+
 
     final_rule {
 
         Learning how to shoot is only one part of mastery.
 
-        Players must learn how to move through a world where
-        the definition of "down" belongs to them.
+        Players must learn how to move through a world
+        where the definition of "down" belongs to them.
 
     }
 
@@ -2256,19 +2504,18 @@ SYSTEM STATUS
 system_status {
 
     PROJECT = "Cyber_Arena HEX//BREAK"
+
     DEVELOPER = "HexCore Gaming"
 
     ARENA_NETWORK = "IN DEVELOPMENT"
+
     PERSONAL_GRAVITY = "ACTIVE"
+
     HEXCORE_SIGNAL = "DETECTED"
+
     HEX_BREAK_PROTOCOL = "READY"
 
 }
-
-
-==============================================================================================================
-WELCOME TO THE ARENA
-==============================================================================================================
 
 </script>
 
@@ -2276,36 +2523,485 @@ WELCOME TO THE ARENA
 <script>
 
 /* ========================================================= */
-/* SOURCE                                                    */
+/* 5 X 7 BINARY FONT                                         */
 /* ========================================================= */
 
-const sourceElement =
-    document.getElementById("source");
+const FONT = {
 
-const codeElement =
-    document.getElementById("code");
+    "A": [
+        "01110",
+        "10001",
+        "10001",
+        "11111",
+        "10001",
+        "10001",
+        "10001"
+    ],
 
-const skipButton =
-    document.getElementById("skip");
+    "B": [
+        "11110",
+        "10001",
+        "10001",
+        "11110",
+        "10001",
+        "10001",
+        "11110"
+    ],
 
-const statusElement =
-    document.getElementById("status");
+    "C": [
+        "01111",
+        "10000",
+        "10000",
+        "10000",
+        "10000",
+        "10000",
+        "01111"
+    ],
 
-const source =
-    sourceElement
+    "D": [
+        "11110",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "11110"
+    ],
+
+    "E": [
+        "11111",
+        "10000",
+        "10000",
+        "11110",
+        "10000",
+        "10000",
+        "11111"
+    ],
+
+    "F": [
+        "11111",
+        "10000",
+        "10000",
+        "11110",
+        "10000",
+        "10000",
+        "10000"
+    ],
+
+    "G": [
+        "01111",
+        "10000",
+        "10000",
+        "10111",
+        "10001",
+        "10001",
+        "01111"
+    ],
+
+    "H": [
+        "10001",
+        "10001",
+        "10001",
+        "11111",
+        "10001",
+        "10001",
+        "10001"
+    ],
+
+    "I": [
+        "11111",
+        "00100",
+        "00100",
+        "00100",
+        "00100",
+        "00100",
+        "11111"
+    ],
+
+    "J": [
+        "00111",
+        "00010",
+        "00010",
+        "00010",
+        "10010",
+        "10010",
+        "01100"
+    ],
+
+    "K": [
+        "10001",
+        "10010",
+        "10100",
+        "11000",
+        "10100",
+        "10010",
+        "10001"
+    ],
+
+    "L": [
+        "10000",
+        "10000",
+        "10000",
+        "10000",
+        "10000",
+        "10000",
+        "11111"
+    ],
+
+    "M": [
+        "10001",
+        "11011",
+        "10101",
+        "10101",
+        "10001",
+        "10001",
+        "10001"
+    ],
+
+    "N": [
+        "10001",
+        "11001",
+        "10101",
+        "10011",
+        "10001",
+        "10001",
+        "10001"
+    ],
+
+    "O": [
+        "01110",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "01110"
+    ],
+
+    "P": [
+        "11110",
+        "10001",
+        "10001",
+        "11110",
+        "10000",
+        "10000",
+        "10000"
+    ],
+
+    "Q": [
+        "01110",
+        "10001",
+        "10001",
+        "10001",
+        "10101",
+        "10010",
+        "01101"
+    ],
+
+    "R": [
+        "11110",
+        "10001",
+        "10001",
+        "11110",
+        "10100",
+        "10010",
+        "10001"
+    ],
+
+    "S": [
+        "01111",
+        "10000",
+        "10000",
+        "01110",
+        "00001",
+        "00001",
+        "11110"
+    ],
+
+    "T": [
+        "11111",
+        "00100",
+        "00100",
+        "00100",
+        "00100",
+        "00100",
+        "00100"
+    ],
+
+    "U": [
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "01110"
+    ],
+
+    "V": [
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "10001",
+        "01010",
+        "00100"
+    ],
+
+    "W": [
+        "10001",
+        "10001",
+        "10001",
+        "10101",
+        "10101",
+        "10101",
+        "01010"
+    ],
+
+    "X": [
+        "10001",
+        "10001",
+        "01010",
+        "00100",
+        "01010",
+        "10001",
+        "10001"
+    ],
+
+    "Y": [
+        "10001",
+        "10001",
+        "01010",
+        "00100",
+        "00100",
+        "00100",
+        "00100"
+    ],
+
+    "Z": [
+        "11111",
+        "00001",
+        "00010",
+        "00100",
+        "01000",
+        "10000",
+        "11111"
+    ],
+
+    "_": [
+        "00000",
+        "00000",
+        "00000",
+        "00000",
+        "00000",
+        "00000",
+        "11111"
+    ],
+
+    "/": [
+        "00001",
+        "00010",
+        "00100",
+        "01000",
+        "10000",
+        "00000",
+        "00000"
+    ],
+
+    " ": [
+        "00000",
+        "00000",
+        "00000",
+        "00000",
+        "00000",
+        "00000",
+        "00000"
+    ]
+
+};
+
+
+/* ========================================================= */
+/* BINARY BANNER BUILDER                                     */
+/* ========================================================= */
+
+function makeBinaryBanner(text) {
+
+    text =
+        text.toUpperCase();
+
+
+    const rows = [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ];
+
+
+    for (
+        const character
+        of text
+    ) {
+
+        const glyph =
+            FONT[character] ||
+            FONT[" "];
+
+
+        for (
+            let row = 0;
+            row < 7;
+            row++
+        ) {
+
+            rows[row] +=
+                glyph[row] +
+                "  ";
+
+        }
+
+    }
+
+
+    return rows.join("\n");
+
+}
+
+
+/* ========================================================= */
+/* BUILD COMPLETE PROJECT FILE                               */
+/* ========================================================= */
+
+const gameFile =
+    document
+        .getElementById("game-file")
         .textContent
         .replace(/^\n/, "");
 
 
-let index = 0;
+const binaryTitleOne =
+    makeBinaryBanner(
+        "CYBER_ARENA"
+    );
 
-let finished = false;
 
-let timer = null;
+const binaryTitleTwo =
+    makeBinaryBanner(
+        "HEX//BREAK"
+    );
+
+
+const binaryWelcomeOne =
+    makeBinaryBanner(
+        "WELCOME"
+    );
+
+
+const binaryWelcomeTwo =
+    makeBinaryBanner(
+        "TO THE ARENA"
+    );
+
+
+const fullSource =
+
+`==============================================================================================================
+${binaryTitleOne}
+
+CYBER_ARENA
+
+${binaryTitleTwo}
+
+HEX//BREAK
+==============================================================================================================
+
+` +
+
+gameFile +
+
+`
+
+==============================================================================================================
+${binaryWelcomeOne}
+
+${binaryWelcomeTwo}
+
+WELCOME TO THE ARENA
+==============================================================================================================
+`;
 
 
 /* ========================================================= */
-/* HTML SAFETY                                               */
+/* PAGE REFERENCES                                           */
+/* ========================================================= */
+
+const codeElement =
+    document.getElementById("code");
+
+
+const statusElement =
+    document.getElementById("status");
+
+
+const skipButton =
+    document.getElementById("skip");
+
+
+/* ========================================================= */
+/* TYPE SPEED                                                */
+/* ========================================================= */
+
+/*
+    This is the important speed control.
+
+    700 characters per second means:
+
+    - much faster than a person normally reads
+    - still slow enough that you can clearly watch the file form
+
+    Lower the number to make it slower.
+
+    Example:
+        500 = slower
+
+    Raise the number to make it faster.
+
+    Example:
+        900 = faster
+*/
+
+const CHARACTERS_PER_SECOND =
+    700;
+
+
+const FRAME_DELAY =
+    25;
+
+
+const CHARS_PER_FRAME =
+    Math.max(
+        1,
+        Math.round(
+            CHARACTERS_PER_SECOND *
+            FRAME_DELAY /
+            1000
+        )
+    );
+
+
+let index = 0;
+
+let timer = null;
+
+let finished = false;
+
+
+/* ========================================================= */
+/* HTML ESCAPE                                               */
 /* ========================================================= */
 
 function escapeHtml(text) {
@@ -2331,7 +3027,7 @@ function escapeHtml(text) {
 
 
 /* ========================================================= */
-/* HEXCORE SYNTAX CLASSIFIER                                 */
+/* LINE COLOR CLASSIFIER                                     */
 /* ========================================================= */
 
 function classifyLine(line) {
@@ -2341,28 +3037,31 @@ function classifyLine(line) {
 
 
     if (
-        trimmed === "CYBER_ARENA"
+        trimmed.length > 15 &&
+        /^[01 ]+$/.test(trimmed)
     ) {
 
-        return "mega-title";
+        return "binary";
 
     }
 
 
     if (
+        trimmed === "CYBER_ARENA" ||
         trimmed === "HEX//BREAK"
     ) {
 
-        return "mega-mode";
+        return "literal-title";
 
     }
 
 
     if (
-        trimmed === "WELCOME TO THE ARENA"
+        trimmed ===
+        "WELCOME TO THE ARENA"
     ) {
 
-        return "mega-ending";
+        return "welcome-literal";
 
     }
 
@@ -2403,8 +3102,8 @@ function classifyLine(line) {
         if (
             trimmed.includes("TRUE") ||
             trimmed.includes("FALSE") ||
-            trimmed.includes("ENABLED") ||
             trimmed.includes("DISABLED") ||
+            trimmed.includes("ENABLED") ||
             trimmed.includes("FREE")
         ) {
 
@@ -2412,13 +3111,15 @@ function classifyLine(line) {
 
         }
 
+
         return "key";
 
     }
 
 
     if (
-        /^[A-Z0-9][A-Z0-9 \/&\-']+$/.test(trimmed) &&
+        /^[A-Z0-9_ \/&\-']+$/
+            .test(trimmed) &&
         trimmed.length > 0 &&
         trimmed.length < 100
     ) {
@@ -2439,7 +3140,7 @@ function classifyLine(line) {
 
 function render(
     text,
-    showCursor = true
+    showCursor
 ) {
 
     const lines =
@@ -2447,43 +3148,55 @@ function render(
 
 
     codeElement.innerHTML =
+
         lines
+
             .map(
                 (line) => {
 
-                    const type =
+                    const className =
                         classifyLine(line);
 
-                    const safe =
-                        escapeHtml(line);
 
                     return (
+
                         '<span class="line ' +
-                        type +
+                        className +
                         '">' +
-                        safe +
+
+                        escapeHtml(line) +
+
                         '</span>'
+
                     );
 
                 }
             )
+
             .join("");
 
 
     if (showCursor) {
 
         const cursorLine =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
+
 
         cursorLine.className =
             "line";
 
 
         const cursor =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
+
 
         cursor.id =
             "cursor";
+
 
         cursor.textContent =
             "|";
@@ -2492,6 +3205,7 @@ function render(
         cursorLine.appendChild(
             cursor
         );
+
 
         codeElement.appendChild(
             cursorLine
@@ -2503,7 +3217,7 @@ function render(
 
 
 /* ========================================================= */
-/* TYPE EFFECT                                               */
+/* TYPING                                                    */
 /* ========================================================= */
 
 function typingStep() {
@@ -2516,7 +3230,8 @@ function typingStep() {
 
 
     if (
-        index >= source.length
+        index >=
+        fullSource.length
     ) {
 
         finishTyping();
@@ -2526,56 +3241,51 @@ function typingStep() {
     }
 
 
-    /*
-        Original version used 9 characters per step.
-
-        This uses 8.
-
-        That makes the visible typing roughly 10 percent slower
-        than the original version you liked.
-    */
-
-    let chunkSize = 8;
-
-
-    if (
-        source[index] === "\n"
-    ) {
-
-        chunkSize = 1;
-
-    }
-
-
     index =
         Math.min(
-            index + chunkSize,
-            source.length
+
+            index +
+            CHARS_PER_FRAME,
+
+            fullSource.length
+
         );
 
 
     render(
-        source.slice(
+
+        fullSource.slice(
             0,
             index
         ),
+
         true
+
     );
 
 
     /*
         IMPORTANT:
 
-        There is deliberately NO window.scrollTo() here.
+        THERE IS NO AUTO SCROLL HERE.
 
-        The project file continues typing independently
-        without moving the visitor's screen.
+        The page does not call:
+
+            window.scrollTo()
+
+        scrollIntoView()
+
+        or any other scrolling command.
+
+        You can scroll anywhere you want while
+        the project file keeps typing independently.
     */
+
 
     timer =
         setTimeout(
             typingStep,
-            4
+            FRAME_DELAY
         );
 
 }
@@ -2592,17 +3302,19 @@ function finishTyping() {
 
     if (timer) {
 
-        clearTimeout(timer);
+        clearTimeout(
+            timer
+        );
 
     }
 
 
     index =
-        source.length;
+        fullSource.length;
 
 
     render(
-        source,
+        fullSource,
         false
     );
 
@@ -2632,7 +3344,7 @@ skipButton.addEventListener(
 
 
 /* ========================================================= */
-/* INITIALIZE                                                */
+/* INITIAL BOOT                                              */
 /* ========================================================= */
 
 render(
@@ -2642,16 +3354,19 @@ render(
 
 
 setTimeout(
+
     () => {
 
         statusElement.textContent =
-            "HEXCORE GAMING // LOADING CYBER_ARENA HEX//BREAK...";
+            "HEXCORE GAMING // LOADING Cyber_Arena HEX//BREAK...";
 
 
         typingStep();
 
     },
-    450
+
+    500
+
 );
 
 </script>
