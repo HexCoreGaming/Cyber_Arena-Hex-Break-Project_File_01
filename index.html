@@ -1,0 +1,2522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cyber_Arena HEX//BREAK - HexCore Gaming Project File</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        background: #000000;
+    }
+
+    body {
+        margin: 0;
+        background: #000000;
+        color: #DCCEF0;
+        font-family: Consolas, "Courier New", monospace;
+        overflow-x: hidden;
+    }
+
+    #topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        background: rgba(5, 2, 15, 0.96);
+        border-bottom: 1px solid #5F1DDA;
+        color: #8CD6FD;
+        font-size: 12px;
+    }
+
+    #status {
+        white-space: nowrap;
+    }
+
+    #skip {
+        border: 1px solid #5F1DDA;
+        background: #0B0625;
+        color: #DCCEF0;
+        font: inherit;
+        padding: 7px 11px;
+        cursor: pointer;
+    }
+
+    #skip:hover {
+        background: #1D0A50;
+    }
+
+    #viewer {
+        width: 100%;
+        overflow-x: auto;
+        padding: 18px 0 60px 0;
+    }
+
+    #code {
+        display: block;
+        margin: 0;
+        padding: 0 22px 0 72px;
+        min-width: 900px;
+        white-space: pre-wrap;
+        word-break: normal;
+        overflow-wrap: normal;
+        tab-size: 4;
+        font-size: 15px;
+        line-height: 1.55;
+        color: #DCCEF0;
+        counter-reset: line;
+    }
+
+    .line {
+        display: block;
+        position: relative;
+        min-height: 1.55em;
+    }
+
+    .line::before {
+        counter-increment: line;
+        content: counter(line);
+        position: absolute;
+        right: calc(100% + 18px);
+        width: 45px;
+        text-align: right;
+        color: #5A5370;
+        user-select: none;
+    }
+
+    .comment {
+        color: #936FCD;
+    }
+
+    .header {
+        color: #B863ED;
+        font-weight: bold;
+    }
+
+    .subheader {
+        color: #8CD6FD;
+        font-weight: bold;
+    }
+
+    .key {
+        color: #8CB8FF;
+    }
+
+    .value {
+        color: #F08CFF;
+    }
+
+    .important {
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    .system {
+        color: #33B8FF;
+    }
+
+    .muted {
+        color: #7F75A6;
+    }
+
+    #cursor {
+        display: inline-block;
+        color: #8CD6FD;
+        animation: blink 0.75s steps(1) infinite;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 700px) {
+
+        #topbar {
+            font-size: 10px;
+            padding: 8px 10px;
+        }
+
+        #code {
+            font-size: 12px;
+            line-height: 1.5;
+            min-width: 760px;
+            padding-left: 60px;
+            padding-right: 16px;
+        }
+
+        .line::before {
+            width: 38px;
+            right: calc(100% + 14px);
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+<div id="topbar">
+    <div id="status">HEXCORE GAMING // READ ONLY PROJECT DATABASE</div>
+    <button id="skip" type="button">SKIP ANIMATION</button>
+</div>
+
+<div id="viewer">
+    <pre id="code"></pre>
+</div>
+
+<script type="text/plain" id="source">
+========================================================================================================================
+========================================================================================================================
+
+          CCCCC   Y   Y  BBBBB   EEEEE  RRRRR          AAAAA  RRRRR   EEEEE  N   N   AAAAA
+         C         Y Y   B    B  E      R    R        A     A R    R  E      NN  N  A     A
+         C          Y    BBBBB   EEEE   RRRRR         AAAAAAA RRRRR   EEEE   N N N  AAAAAAA
+         C          Y    B    B  E      R   R         A     A R   R   E      N  NN  A     A
+          CCCCC     Y    BBBBB   EEEEE  R    R        A     A R    R  EEEEE  N   N  A     A
+
+                              H   H  EEEEE  X   X
+                              H   H  E       X X
+                              HHHHH  EEEE     X
+                              H   H  E       X X
+                              H   H  EEEEE  X   X
+
+                  / /    BBBBB   RRRRR   EEEEE   AAAAA  K   K
+                 / /     B    B  R    R  E      A     A K  K
+                / /      BBBBB   RRRRR   EEEE   AAAAAAA KKK
+               / /       B    B  R   R   E      A     A K  K
+              / /        BBBBB   R    R  EEEEE  A     A K   K
+
+========================================================================================================================
+                                      HEXCORE GAMING // PROJECT DATABASE
+========================================================================================================================
+
+SYSTEM_BOOT {
+
+    project = "Cyber_Arena HEX//BREAK"
+    developer = "HexCore Gaming"
+    access = "READ ONLY"
+    status = "IN DEVELOPMENT"
+
+    initializing_arena_network = TRUE
+    calibrating_personal_gravity = TRUE
+    loading_hexcore_protocol = TRUE
+    verifying_combat_systems = TRUE
+
+}
+
+========================================================================================================================
+TABLE OF CONTENTS
+========================================================================================================================
+
+PROJECT OVERVIEW ........................................................ LINE ______
+SETTING AND VISUAL IDENTITY .............................................. LINE ______
+CORE MOVEMENT PHILOSOPHY ................................................. LINE ______
+PERSONAL GRAVITY / EVERY-SURFACE MOVEMENT ................................ LINE ______
+MOVEMENT GADGETS ......................................................... LINE ______
+ABILITY SYSTEM ........................................................... LINE ______
+PLAYER HEALTH ............................................................ LINE ______
+WEAPONS ................................................................ LINE ______
+MELEE WEAPON MOVEMENT .................................................... LINE ______
+ASSASSINATIONS ........................................................... LINE ______
+HEX//BREAK ............................................................... LINE ______
+HEX//BREAK POSSESSION .................................................... LINE ______
+HEXCORE CARRY LIMIT ...................................................... LINE ______
+NEXUS PORTS .............................................................. LINE ______
+MATCH FORMATS ............................................................ LINE ______
+MAGIC ARM ................................................................ LINE ______
+RESPAWNING ............................................................... LINE ______
+MAP PHILOSOPHY ........................................................... LINE ______
+DEMO MAP 01 .............................................................. LINE ______
+MAP 02 - MOBIUS ARENA .................................................... LINE ______
+AI BOTS ................................................................ LINE ______
+HEX//FORGE - PLAYER MAP BUILDER .......................................... LINE ______
+BLENDER LAB .............................................................. LINE ______
+CHARACTER CREATION ....................................................... LINE ______
+RANKED PLAY .............................................................. LINE ______
+RANKED BOTS .............................................................. LINE ______
+QUICKPLAY ................................................................ LINE ______
+SOCIAL SYSTEMS ........................................................... LINE ______
+DEATH PRESENTATION ....................................................... LINE ______
+PERMANENT PUBLIC DEMO .................................................... LINE ______
+ALPHA / ACTIVE GAME ...................................................... LINE ______
+PRICING AND RELEASE PATH ................................................. LINE ______
+NO REAL-MONEY IN-GAME PURCHASES ......................................... LINE ______
+PHYSICAL COPIES .......................................................... LINE ______
+MENU / UI FLOW ........................................................... LINE ______
+ACCESSIBILITY ............................................................ LINE ______
+DEVELOPER'S NOTE ......................................................... LINE ______
+WORLD DESTRUCTION ........................................................ LINE ______
+PLAYER OWNERSHIP / LONGEVITY ............................................. LINE ______
+OVERALL IDENTITY ......................................................... LINE ______
+
+========================================================================================================================
+PROJECT OVERVIEW
+========================================================================================================================
+
+project Cyber_Arena_HEX_BREAK {
+
+    title = "Cyber_Arena HEX//BREAK"
+    genre = "Fast, skill-based arena FPS"
+    engine = "Unreal Engine"
+    development_style = "Blueprint-focused"
+    primary_mode = "HEX//BREAK"
+
+    overview {
+
+        Cyber_Arena HEX//BREAK is a fast, skill-based arena FPS built around extreme movement,
+        local-gravity traversal, aggressive combat, and the HEX//BREAK objective mode.
+
+        The game blends cyberpunk technology, fantasy, medieval influences, magical energy,
+        gladiatorial aesthetics, and cosmic science fiction into a competitive arena setting
+        where Human and Elven gladiators fight for the entertainment of massive cosmic beings.
+
+        Cyber_Arena HEX//BREAK is being built in Unreal Engine as a Blueprint-focused project
+        with a strong emphasis on player skill rather than automated assistance.
+
+        The core idea is that mastering movement, positioning, weapons, gadgets, abilities,
+        personal gravity, objective strategy, and the arena itself should determine who wins.
+
+    }
+
+    skill_philosophy {
+
+        aim_assist = DISABLED
+        auto_kill_system = DISABLED
+        poor_aim_compensation = DISABLED
+        poor_movement_compensation = DISABLED
+
+        mastery_requires {
+
+            aim
+            movement
+            positioning
+            weapons
+            gadgets
+            abilities
+            personal_gravity
+            objective_control
+            arena_knowledge
+            timing
+            decision_making
+            execution
+
+        }
+
+        rule {
+
+            Victory is meant to come from understanding and mastering the game.
+
+            The game should not play itself for the player.
+
+            Better mastery of the game's systems should create a real advantage.
+
+        }
+
+    }
+
+}
+
+========================================================================================================================
+SETTING AND VISUAL IDENTITY
+========================================================================================================================
+
+world Cyber_Arena_HEX_BREAK {
+
+    location = "Futuristic arenas floating in space"
+
+    civilization_state {
+
+        The world represents a fantasy civilization that has effectively been overtaken
+        and transformed by cyber technology.
+
+        This is not simply fantasy placed beside cyberpunk.
+
+        The two have merged.
+
+        Ancient and medieval influences remain visible beneath advanced technology,
+        cybernetic systems, magical energy, neon architecture, and impossible structures.
+
+    }
+
+    visual_style {
+
+        cyberpunk
+        futuristic_technology
+        medieval_influences
+        fantasy_influences
+        magical_energy
+        gladiatorial_aesthetics
+        neon_purple
+        cyan
+        electric_blue
+        magenta
+        cosmic_environments
+        massive_celestial_beings
+        space_lifeforms
+        impossible_architecture
+
+    }
+
+    arena_purpose = "Cosmic gladiatorial entertainment"
+
+    presentation {
+
+        The arenas primarily exist as entertainment for cosmic beings and spectators.
+
+        Matches are presented more like futuristic gladiatorial sporting events than
+        traditional military battles.
+
+        possible_elements {
+
+            crowds
+            announcers
+            cosmic_entities
+            massive_celestial_beings
+            space_battles
+            planets
+            nebulae
+            asteroids
+            strange_lifeforms
+            cosmic_creatures
+            massive_structures
+
+        }
+
+        The match may be taking place inside the arena while something far larger
+        is happening in the universe outside it.
+
+        The players are gladiators.
+
+        The arena is the stage.
+
+        The universe is the audience.
+
+    }
+
+}
+
+========================================================================================================================
+CORE MOVEMENT PHILOSOPHY
+========================================================================================================================
+
+movement_system {
+
+    movement_speed = HIGH
+    standard_sprint = REMOVED
+    chained_movement = ENCOURAGED
+    traditional_slow_navigation = REJECTED
+
+    philosophy {
+
+        Movement is one of the defining features of Cyber_Arena HEX//BREAK.
+
+        Players move extremely quickly and are intended to chain movement together aggressively
+        rather than slowly navigate traditional FPS maps.
+
+        The game is built around maintaining momentum while attacking, escaping, pursuing,
+        intercepting, repositioning, defending, and chasing the Hexcore.
+
+    }
+
+    base_movement {
+
+        high_speed_running
+        jumping
+        crouching
+        sliding
+        vaulting
+        mantling
+        wall_running
+        upward_wall_climbing
+        wall_jumping
+        wall_top_mantling
+        movement_gadgets
+
+    }
+
+    sprint {
+
+        normal_sprint_system = REMOVED
+
+        Base movement is substantially faster instead.
+
+        Speed is meant to be part of the default movement language rather than
+        something constantly toggled on and off.
+
+        future_optional_sprint_gadget = POSSIBLE
+
+    }
+
+}
+
+========================================================================================================================
+PERSONAL GRAVITY / EVERY-SURFACE MOVEMENT
+========================================================================================================================
+
+gravity_system {
+
+    type = "Surface-relative personal gravity"
+    universal_world_up = FALSE
+    player_down = "Current registered floor surface"
+
+    sequence {
+
+        Current_Floor_Surface
+            |
+            v
+        Surface_Normal
+            |
+            v
+        Personal_Gravity
+            |
+            v
+        Character_Orientation
+            |
+            v
+        Camera_Orientation
+
+    }
+
+    basic_rule {
+
+        normal_floor {
+
+            floor = DOWN
+
+        }
+
+        wall {
+
+            wall = DOWN
+
+        }
+
+        ceiling {
+
+            ceiling = DOWN
+
+        }
+
+        From the player's perspective, they remain upright.
+
+    }
+
+    multiplayer_example {
+
+        player_A = "Standing on a normal floor"
+        player_B = "Running along a vertical wall"
+        player_C = "Running upside down across the ceiling"
+
+        result {
+
+            All three players experience their own surface as down.
+
+            All three can fight each other normally.
+
+            All three operate from different personal gravity orientations.
+
+        }
+
+    }
+
+    attachment {
+
+        held_button_required = FALSE
+        persists_after_valid_contact = TRUE
+
+        Once attached to a valid surface, attachment persists automatically.
+
+    }
+
+    changing_surfaces {
+
+        step_01 = "Leave the existing surface"
+        step_02 = "Travel away from it"
+        step_03 = "Physically contact another valid surface"
+
+        passing_near_surface_changes_gravity = FALSE
+
+    }
+
+    transfer_example {
+
+        Player_leaves_Surface_A
+            |
+            v
+        Surface_A_gravity_remains_active
+            |
+            v
+        Player_travels_through_space
+            |
+            v
+        Player_contacts_Surface_B
+            |
+            v
+        Surface_B_becomes_new_floor
+
+    }
+
+    missed_surface_behavior {
+
+        If the player misses every surface, they continue falling according
+        to the previous gravity frame.
+
+        automatic_return_to_world_down = FALSE
+
+    }
+
+    curved_surfaces {
+
+        continuous_surface_normal_updates = TRUE
+
+        examples {
+
+            spheres
+            curved_tunnels
+            rounded_tracks
+            continuous_loops
+
+        }
+
+    }
+
+    hard_edges {
+
+        automatic_corner_wrapping = FALSE
+
+        A cube does not automatically pull the player around its corner.
+
+        The player must physically leave one face and establish contact
+        with the next valid face.
+
+    }
+
+}
+
+========================================================================================================================
+MOVEMENT GADGETS
+========================================================================================================================
+
+movement_gadgets {
+
+    equipped_slots = 1
+
+    mega_jump {
+
+        jump_height = "Approximately 5X normal jump"
+        charges = 4
+        regeneration = "Approximately 5 seconds per charge"
+        independent_charge_regeneration = TRUE
+
+        purpose {
+
+            rapid_elevation
+            crossing_large_vertical_spaces
+            reaching_unusual_surfaces
+            redirecting_movement
+            reaching_new_gravity_orientations
+
+        }
+
+    }
+
+    grapple {
+
+        maximum_range = "Approximately 60 meters"
+        charges = 3
+        regeneration = "Approximately 5 seconds per charge"
+
+        purpose {
+
+            Long-range traversal across the arena.
+
+            Reaching a new surface can completely redefine the player's gravity direction.
+
+        }
+
+    }
+
+    dash {
+
+        distance = "Approximately 10 meters"
+        charges = 5
+        regeneration = "Approximately 5 seconds per charge"
+
+        automatic_edge_wrapping = FALSE
+
+        edge_behavior {
+
+            forward_momentum_continues = TRUE
+            current_gravity_remains_active = TRUE
+            player_begins_falling_according_to_existing_gravity = TRUE
+
+        }
+
+    }
+
+    possible_future_sprint {
+
+        planned = POSSIBLE
+        boost_duration = "Approximately 3 seconds"
+        cooldown = "Approximately 10 seconds"
+
+        Sprint may eventually return as an optional movement gadget rather
+        than being a permanent standard movement state.
+
+    }
+
+}
+
+========================================================================================================================
+ABILITY SYSTEM
+========================================================================================================================
+
+ability_system {
+
+    equipped_slots = 3
+    empty_slots_allowed = TRUE
+    loadout_swapping = PLANNED
+
+    lightning_taze {
+
+        duration = "Approximately 3 seconds"
+        cooldown = "Approximately 10 seconds"
+        effect = "Full incapacitation"
+
+        disabled_actions {
+
+            movement
+            camera_rotation
+            look_rotation
+            jumping
+            movement_gadgets
+            other_relevant_actions
+
+        }
+
+        Lightning Taze is intended to completely immobilize its target
+        rather than merely slowing movement.
+
+    }
+
+    purple_sludge {
+
+        movement_speed_reduction = "Approximately 30 percent"
+        duration = "Approximately 5 seconds"
+        cooldown = "Approximately 10 seconds"
+
+    }
+
+    heal {
+
+        health_restored = "Approximately 30 HP"
+        ally_range = "Approximately 5 meters"
+        cooldown = "Approximately 10 seconds"
+
+        targets {
+
+            user
+            nearby_allies
+
+        }
+
+        can_exceed_maximum_health = FALSE
+
+    }
+
+    blue_shield_bubble {
+
+        shield_capacity = "Approximately 30 damage"
+        maximum_duration = "Approximately 5 seconds"
+        cooldown = "Approximately 10 seconds"
+
+        ends_when {
+
+            shield_health_reaches_zero
+
+            OR
+
+            maximum_duration_expires
+
+        }
+
+        cooldown_begins_when_shield_ends = TRUE
+
+    }
+
+}
+
+========================================================================================================================
+PLAYER HEALTH
+========================================================================================================================
+
+player_health {
+
+    standard_maximum_hp = 100
+
+    cross_platform_console_health_allowance {
+
+        finalized = FALSE
+
+        concept {
+
+            Console players may receive an additional health allowance during
+            cross-platform matches if testing proves PC input creates too large
+            of an advantage.
+
+            This would only be introduced if real gameplay testing shows
+            compensation is actually needed.
+
+        }
+
+    }
+
+}
+
+========================================================================================================================
+WEAPONS
+========================================================================================================================
+
+weapon_system {
+
+    weapon_families {
+
+        firearms
+        medieval_and_melee
+        magic
+
+    }
+
+    eventual_range_categories {
+
+        close_range
+        medium_range
+        long_range
+
+    }
+
+    demo_weapon_01 {
+
+        name = "Uzi / Machine Gun"
+        magazine = 30
+        body_damage_per_bullet = "Approximately 10"
+        total_body_damage_per_magazine = "Approximately 300"
+        primary_range = "Close range"
+        precision = "Lower than rifle"
+
+        The weapon is designed primarily for close-range sustained fire.
+
+    }
+
+    demo_weapon_02 {
+
+        name = "Semi-Auto Rifle"
+        magazine = 10
+        body_damage = "Approximately 34"
+        three_body_shots = 102
+        headshot_damage = "Approximately 100"
+        one_shot_headshot = TRUE
+        primary_role = "Precision / long-range"
+
+        Three body shots can eliminate a standard 100 HP player.
+
+        A clean headshot can eliminate a standard-health player in one shot.
+
+    }
+
+}
+
+========================================================================================================================
+MELEE WEAPON MOVEMENT
+========================================================================================================================
+
+melee_weapon_traversal {
+
+    throwable_melee_weapons = TRUE
+
+    after_throw {
+
+        option_A = "Teleport to weapon"
+        option_B = "Recall weapon to hand"
+
+    }
+
+    purpose {
+
+        Melee weapons can become traversal tools rather than functioning
+        only as close-range combat weapons.
+
+        A player can throw a weapon toward a destination and teleport to it.
+
+        Or the player can throw the weapon offensively and recall it afterward.
+
+        Combat and traversal become connected.
+
+    }
+
+}
+
+========================================================================================================================
+ASSASSINATIONS
+========================================================================================================================
+
+assassination_system {
+
+    enabled = TRUE
+
+    requirements {
+
+        attacker_position = "Behind target"
+        range = "Close assassination range"
+        target_health = "70 percent or lower"
+
+        current_100_hp_threshold = 70
+
+    }
+
+    server_validation {
+
+        target_health
+        attacker_angle
+        attacker_distance
+
+    }
+
+    demo_animation_count = 1
+    future_additional_animations = TRUE
+
+    gravity_interaction {
+
+        Assassination positioning must be calculated relative to the target's
+        own orientation rather than traditional world-up.
+
+        possible_locations {
+
+            walls
+            ceilings
+            upside_down
+            tunnels
+            curved_surfaces
+            players_with_different_gravity_frames
+
+        }
+
+    }
+
+}
+
+========================================================================================================================
+HEX//BREAK
+========================================================================================================================
+
+mode HEX_BREAK {
+
+    primary_mode = TRUE
+    objective = "Hexcore"
+    gameplay_type = "Possession / interception / control"
+
+    hexcore {
+
+        approximate_size = "Human-head sized"
+
+        visual_components {
+
+            fractured_violet_crystalline_energy
+            disconnected_pieces
+            broken_dark_metal_rings
+            blue_circuitry
+            arcane_runes
+            floating_glyphs
+            hex_characters
+            glitch_effects
+            wireframe_fragments
+            impossible_rotations
+            visual_desynchronization
+
+        }
+
+        carrier_effects {
+
+            purple_energy
+            electric_blue_energy
+
+        }
+
+        carrier_visibility = "Immediately identifiable to every player"
+
+    }
+
+}
+
+========================================================================================================================
+HEX//BREAK POSSESSION
+========================================================================================================================
+
+hex_break_possession {
+
+    fixed_base_delivery = FALSE
+
+    HEX//BREAK revolves around possession rather than transporting
+    the objective to one permanent traditional base.
+
+    player_actions {
+
+        chase_carrier
+        steal_hexcore
+        intercept_enemies
+        pass_hexcore
+        throw_hexcore
+        launch_hexcore
+        use_movement_to_escape
+        cut_off_routes
+        manipulate_possession
+        force_objective_transfers
+        control_space_around_carrier
+
+    }
+
+    minimap_required = FALSE
+    radar_required = FALSE
+
+    awareness_sources {
+
+        visual_carrier_identification
+        arena_knowledge
+        movement_prediction
+        positioning
+        team_communication
+        game_awareness
+
+    }
+
+}
+
+========================================================================================================================
+HEXCORE CARRY LIMIT
+========================================================================================================================
+
+hexcore_instability {
+
+    maximum_continuous_hold = "Approximately 20 seconds"
+
+    instability_window {
+
+        start = "Approximately 15 seconds"
+        end = "Approximately 20 seconds"
+
+        effects {
+
+            visual_effects_escalate
+            energy_becomes_more_violent
+            instability_increases
+            object_appears_dangerous
+
+        }
+
+    }
+
+    overload {
+
+        activation = "Approximately 20 seconds"
+        carrier_damage = "Approximately 80 percent of maximum health"
+
+    }
+
+    corrupted_state {
+
+        duration = "Approximately 5 seconds"
+        color = RED
+
+        dangerous_interactions {
+
+            touching
+            catching
+            grabbing
+
+        }
+
+        contact_damage = "Approximately 80 percent of maximum health"
+
+    }
+
+    rule {
+
+        Players cannot safely hold the Hexcore forever.
+
+        Possession must move.
+
+    }
+
+}
+
+========================================================================================================================
+NEXUS PORTS
+========================================================================================================================
+
+nexus_ports {
+
+    enabled = TRUE
+
+    scoring {
+
+        trigger = "Hexcore carrier reaches Nexus Port"
+        team_score_reward = "Approximately +30 seconds"
+
+    }
+
+    reality_effect {
+
+        When scoring, the surrounding world can temporarily appear to:
+
+            glitch
+            break_apart
+            desynchronize
+            fracture
+            corrupt
+
+        recovery = "Environment reconstructs itself"
+
+    }
+
+}
+
+========================================================================================================================
+MATCH FORMATS
+========================================================================================================================
+
+match_formats {
+
+    supported {
+
+        Free_For_All
+        Team_Play
+
+    }
+
+    primary_team_target = "5v5"
+
+    population_scaling {
+
+        5v5
+        4v4
+        3v3
+        2v2
+        1v1
+
+    }
+
+    intentionally_uneven_teams = FALSE
+
+}
+
+========================================================================================================================
+MAGIC ARM
+========================================================================================================================
+
+magic_arm {
+
+    type = "Cyber / magical multi-purpose arm system"
+
+    The Magic Arm replaces the idea of a simple generic grappling mechanic
+    with something more flexible.
+
+    possible_functions {
+
+        grapple_to_surfaces
+        rip_hexcore_from_enemy
+        take_hexcore_from_ally
+        pull_ally
+        manipulate_positioning
+        manipulate_objective_positioning
+        launch_hexcore
+
+    }
+
+    charged_hexcore_launch_distance = "Approximately 60 feet"
+
+    strategic_uses {
+
+        movement
+        rescue
+        disruption
+        possession_changes
+        team_coordination
+        objective_manipulation
+
+    }
+
+}
+
+========================================================================================================================
+RESPAWNING
+========================================================================================================================
+
+respawning {
+
+    base_respawn_timer = "Approximately 10 seconds"
+
+    teammate_kill_rule {
+
+        every_teammate_kill_reduces_timer_by = "Approximately 2 seconds"
+
+        if_timer_reaches_zero = "Immediate respawn"
+
+    }
+
+    spawn_style = "Neutral spawning"
+
+    traditional_fixed_team_bases_required = FALSE
+
+}
+
+========================================================================================================================
+MAP PHILOSOPHY
+========================================================================================================================
+
+map_design {
+
+    Cyber_Arena HEX//BREAK maps are built around movement rather than
+    conventional flat FPS geometry.
+
+    every_valid_surface_can_be_floor = TRUE
+
+    possible_geometry {
+
+        floors
+        walls
+        ceilings
+        tunnels
+        inverted_paths
+        floating_structures
+        large_gaps
+        loops
+        curved_geometry
+        impossible_architecture
+        moving_platforms
+        rotating_structures
+        shifting_pathways
+
+    }
+
+    design_identity {
+
+        A wall is not automatically an obstacle.
+
+        A ceiling is not automatically unreachable.
+
+        A tunnel does not automatically have one correct orientation.
+
+        Different players can use the same structure differently
+        depending on their personal gravity.
+
+        The arena itself is part of the combat.
+
+    }
+
+}
+
+========================================================================================================================
+DEMO MAP 01
+========================================================================================================================
+
+demo_map_01 {
+
+    structure = "Large floating arena inside giant spherical structure"
+
+    current_status {
+
+        structurally_complete_after_repairs = TRUE
+
+        remaining_repairs {
+
+            visual_issues
+            spawn_issues
+            respawn_issues
+
+        }
+
+    }
+
+    core_layout {
+
+        central_arena
+        surrounding_sectors
+        multiple_vertical_levels
+        large_outer_sphere
+        space_environment
+        neutral_spawn_locations
+
+    }
+
+    sphere_appearance = "Multicolored neon cyber-tech / circuitry appearance"
+
+    future_geometry {
+
+        Once repaired, the geometry is intended to remain largely untouched.
+
+    }
+
+}
+
+========================================================================================================================
+MAP 02 - MOBIUS ARENA
+========================================================================================================================
+
+map_02 {
+
+    primary_structure = "Giant Mobius strip"
+
+    identity {
+
+        The Mobius strip acts as the primary combat track.
+
+        It should feel somewhat like a futuristic combat-racing course
+        while remaining open enough for strategic combat.
+
+    }
+
+    player_opportunities {
+
+        cut_enemies_off
+        intercept_carrier
+        jump_between_routes
+        use_movement_gadgets
+        enter_tunnels
+        emerge_elsewhere
+        attack_from_different_orientations
+        take_shortcuts
+        control_movement_lanes
+
+    }
+
+    planned_structure {
+
+        long_running_straightaways
+        broad_turns
+        enclosed_tunnels
+        branching_side_tunnels
+        wall_running_surfaces
+        ceiling_running_sections
+        open_space_sections
+        inverted_routes
+        center_shortcuts
+        floating_platforms
+        moving_obstacles
+
+    }
+
+    predictable_moving_structures {
+
+        rotating_rings
+        moving_platforms
+        sliding_walls
+        rotating_bridges
+        elevators
+        moving_blocks
+        rotating_tunnel_sections
+
+    }
+
+    random_movement = FALSE
+
+    design_rule {
+
+        Movement should generally be predictable.
+
+        Players should be able to learn timings, memorize patterns,
+        predict movement, master routes, and use map knowledge skillfully.
+
+    }
+
+    development_timing {
+
+        Map 02 is intentionally being saved until the core game itself is playable.
+
+    }
+
+}
+
+========================================================================================================================
+AI BOTS
+========================================================================================================================
+
+ai_bots {
+
+    purpose {
+
+        Cyber_Arena HEX//BREAK includes bots so the game remains playable
+        even without human opponents.
+
+    }
+
+    demo_difficulties {
+
+        Easy
+        Normal
+        Hard
+        Expert
+
+    }
+
+    difficulty_affects {
+
+        aiming_accuracy
+        reaction_time
+        movement
+        aggression
+        route_selection
+        objective_decision_making
+
+    }
+
+    hidden_health_bonus = FALSE
+    hidden_damage_bonus = FALSE
+    hidden_stat_cheats = FALSE
+
+    rule {
+
+        Higher difficulty should make bots behave better.
+
+        It should not make them cheat harder.
+
+    }
+
+    eventual_required_understanding {
+
+        personal_gravity
+        movement_routes
+        weapons
+        movement_gadgets
+        abilities
+        HEX//BREAK
+        hexcore_interception
+        nexus_ports
+
+    }
+
+}
+
+========================================================================================================================
+HEX//FORGE - PLAYER MAP BUILDER
+========================================================================================================================
+
+creation_system HEX_FORGE {
+
+    working_name = "HEX//FORGE"
+
+    starting_environment {
+
+        empty_space_environment
+        approved_structure_library
+        approved_object_library
+
+    }
+
+    build_commands {
+
+        place_object
+        move_object
+        rotate_object
+        delete_object
+        grid_snap
+        possible_free_placement
+
+    }
+
+    eventual_capabilities {
+
+        build_maps
+        place_spawn_points
+        place_HEX//BREAK_objectives
+        save_maps
+        load_maps
+        test_maps
+        play_created_maps
+
+    }
+
+    spawn_points_are_placeable_objects = TRUE
+
+    spawn_configurations {
+
+        Neutral_Spawn
+        Team_A_Spawn
+        Team_B_Spawn
+        FFA_Spawn_Pools
+
+    }
+
+    gravity_effect {
+
+        Because Cyber_Arena HEX//BREAK uses personal gravity,
+        simple structures can create complicated gameplay.
+
+        A wall can become a floor.
+
+        A ceiling can become a route.
+
+        A tunnel can become a battlefield from multiple orientations.
+
+    }
+
+}
+
+========================================================================================================================
+BLENDER LAB
+========================================================================================================================
+
+development Blender_Lab {
+
+    purpose {
+
+        Before HEX//FORGE is built, development will use a developer-focused
+        Blender Lab.
+
+        It is a development playground where reusable structures can be
+        generated, reviewed, modified, approved, and promoted into the
+        game's asset library.
+
+    }
+
+    example_architectural_molds {
+
+        small_buildings
+        medium_buildings
+        large_buildings
+        towers
+        warehouses
+        corridors
+        tunnels
+        platforms
+
+    }
+
+    initial_requirements {
+
+        plain_gray
+        hollow
+        properly_scaled
+        floors
+        staircases
+        window_openings
+        doorway_openings
+
+    }
+
+    initial_exclusions {
+
+        balconies
+        decorative_siding
+        shingles
+        facade_decoration
+        unnecessary_props
+        stylistic_detailing
+
+    }
+
+    role = "Architectural molds"
+
+    asset_pipeline {
+
+        Individual structures can be numbered.
+
+        Approved designs can later become reusable finished game assets.
+
+    }
+
+}
+
+========================================================================================================================
+CHARACTER CREATION
+========================================================================================================================
+
+character_creation {
+
+    initial_body_types {
+
+        Male
+        Female
+
+    }
+
+    initial_races {
+
+        Human
+        Elf
+
+    }
+
+    customization {
+
+        facial_options
+        substantial_body_morphing_within_defined_limits
+        cybernetic_bodyware
+        outfits
+        cosmetic_sets
+
+    }
+
+    non_human_designs {
+
+        Non-human appearances and more extreme cosmetic designs can eventually
+        be added as dedicated skins rather than infinitely modifying the base
+        Human and Elf body structures.
+
+    }
+
+}
+
+========================================================================================================================
+RANKED PLAY
+========================================================================================================================
+
+ranked_play {
+
+    ranks {
+
+        01 = Initiate
+        02 = Gladiator
+        03 = Vanguard
+        04 = Hexblade
+        05 = Voidborn
+        06 = Arc_Warden
+        07 = Nexus_Reaver
+        08 = Astral_Sovereign
+        09 = Godbreaker
+
+    }
+
+    progression {
+
+        win = "+10 percent"
+        loss = "-10 percent"
+
+        hidden_performance_multiplier = FALSE
+        kills_modify_progress = FALSE
+        streaks_modify_progress = FALSE
+
+        rule {
+
+            Rank progression is intentionally simple.
+
+            Winning increases progress by 10 percent.
+
+            Losing decreases progress by 10 percent.
+
+            There is no hidden performance formula.
+
+        }
+
+    }
+
+    matchmaking {
+
+        target = "Players of the same rank"
+        strict_same_rank_matchmaking = TRUE
+
+    }
+
+    godbreaker {
+
+        A single top-ranked Godbreaker is not automatically considered
+        a matchmaking failure.
+
+        Being the only player to reach that rank can itself represent
+        the achievement.
+
+    }
+
+    rank_of_fame {
+
+        public = TRUE
+
+        possible_information {
+
+            player_name
+            current_rank
+            online_status
+            last_online
+
+        }
+
+    }
+
+}
+
+========================================================================================================================
+RANKED BOTS
+========================================================================================================================
+
+ranked_bots {
+
+    automatically_inserted = FALSE
+
+    insufficient_population_vote {
+
+        option_A = "Continue with available human players"
+        option_B = "Fill remaining positions with bots"
+
+    }
+
+    tie_breaker {
+
+        If the vote ties, one voter from each side enters a 1v1.
+
+        The winner determines which option is used.
+
+    }
+
+}
+
+========================================================================================================================
+QUICKPLAY
+========================================================================================================================
+
+quickplay {
+
+    ranked = FALSE
+    matchmaking = OPEN
+    cross_platform = TRUE
+
+    identity {
+
+        unranked
+        open_matchmaking
+        cross_platform
+
+    }
+
+    flow {
+
+        Select_a_match
+        Enter_the_arena
+        Play
+
+    }
+
+}
+
+========================================================================================================================
+SOCIAL SYSTEMS
+========================================================================================================================
+
+social_systems {
+
+    possible_features {
+
+        proximity_chat
+        party_chat
+        group_chat
+        persistent_organizations
+        private_friend_hosting
+        player_hosted_public_matches
+        server_browsing
+        direct_connect_options
+
+    }
+
+    organization_labels {
+
+        Clan
+        Gang
+        Club
+        Guild
+        Syndicate
+        Crew
+        Order
+        Company
+        Brotherhood
+        Circle
+        House
+        Faction
+
+    }
+
+    rule {
+
+        Players are not forced to use one universal naming convention
+        for persistent organizations.
+
+    }
+
+}
+
+========================================================================================================================
+DEATH PRESENTATION
+========================================================================================================================
+
+death_presentation {
+
+    default_effect = "Hex Shatter"
+    duration = "Approximately 0.5 to 0.9 seconds"
+    corpse_remains = FALSE
+
+    sequence {
+
+        01 = "Body briefly locks or glitches"
+        02 = "Purple and blue cracks appear"
+        03 = "Character fractures"
+        04 = "Glowing fragments burst apart"
+        05 = "Fragments dissolve"
+        06 = "Residual distortion fades"
+
+    }
+
+    purpose {
+
+        Fast visual readability without leaving bodies scattered throughout
+        a high-speed arena.
+
+    }
+
+    future_cosmetic_death_effects {
+
+        planned = TRUE
+        changes_gameplay_timing = FALSE
+
+    }
+
+}
+
+========================================================================================================================
+PERMANENT PUBLIC DEMO
+========================================================================================================================
+
+public_demo {
+
+    price = FREE
+    offline = TRUE
+    online_multiplayer = FALSE
+    bot_support = TRUE
+
+    planned_content {
+
+        eventually_two_maps
+        HEX//BREAK
+        core_weapons
+        extreme_movement
+        personal_gravity
+        movement_gadgets
+        abilities
+        assassinations
+        AI_bots
+        settings
+        HEX//FORGE
+
+    }
+
+    permanent_snapshot {
+
+        Once considered finished, the demo becomes a permanent snapshot
+        of Cyber_Arena HEX//BREAK at that stage of development.
+
+        regular_full_game_updates = FALSE
+
+        The active game continues evolving separately.
+
+    }
+
+    possible_VR_exception {
+
+        If Cyber_Arena HEX//BREAK eventually receives proper VR compatibility,
+        the permanent demo may also receive a VR compatibility update.
+
+    }
+
+}
+
+========================================================================================================================
+ALPHA / ACTIVE GAME
+========================================================================================================================
+
+active_alpha {
+
+    access_type = "Early Access"
+    price = "$20"
+    online = TRUE
+    multiplayer = TRUE
+    continuous_updates = TRUE
+    state = "Active Development"
+
+    relationship_to_demo {
+
+        The actual Cyber_Arena HEX//BREAK game is released separately
+        from the permanent public demo.
+
+        The demo remains an offline snapshot.
+
+        The Alpha is the continuously evolving version.
+
+    }
+
+    future_updates_can_include {
+
+        new_maps
+        new_systems
+        new_features
+        new_content
+        multiplayer_improvements
+        balance_changes
+        bug_fixes
+        future_technology
+        system_expansions
+
+    }
+
+    development_path {
+
+        The Alpha eventually evolves into the complete full release.
+
+    }
+
+    private_testing {
+
+        testing_copy_for_friend = PLANNED
+
+        testing_options {
+
+            party_together
+            populate_remaining_match_slots_with_bots
+            test_gameplay
+            identify_bugs
+            verify_replication
+            test_multiplayer_systems
+
+        }
+
+    }
+
+}
+
+========================================================================================================================
+PRICING AND RELEASE PATH
+========================================================================================================================
+
+pricing {
+
+    public_demo {
+
+        price = "$0"
+        label = "FREE"
+
+    }
+
+    alpha_early_access {
+
+        price = "$20"
+
+    }
+
+    full_release {
+
+        price = "$40"
+
+    }
+
+    free_to_play_transition {
+
+        paid_copy_threshold = 300000
+
+        condition {
+
+            After 300,000 paid lifetime copies of Cyber_Arena HEX//BREAK
+            have been sold, the game becomes permanently free-to-play.
+
+        }
+
+        permanent = TRUE
+
+        important_rule {
+
+            Becoming free-to-play does not move monetization inside the game.
+
+            The purchase requirement simply disappears.
+
+        }
+
+    }
+
+}
+
+========================================================================================================================
+NO REAL-MONEY IN-GAME PURCHASES
+========================================================================================================================
+
+monetization {
+
+    real_money_store = FALSE
+    microtransactions = FALSE
+    paid_cosmetics = FALSE
+    paid_currency = FALSE
+    paid_weapons = FALSE
+    paid_abilities = FALSE
+    paid_gameplay_boosts = FALSE
+    paid_power = FALSE
+    paid_battle_pass = FALSE
+    loot_boxes = FALSE
+    pay_to_win = FALSE
+
+    cosmetics {
+
+        earned_through_gameplay = TRUE
+        sold_for_real_money = FALSE
+
+    }
+
+    rule {
+
+        Cyber_Arena HEX//BREAK will not introduce a system where players
+        spend real money on in-game items.
+
+        There will be no real-money cosmetic store.
+
+        There will be no paid currency.
+
+        There will be no paid weapons.
+
+        There will be no paid abilities.
+
+        There will be no paid gameplay boosts.
+
+        There will be no paid battle pass.
+
+        There will be no loot-box economy.
+
+        There will be no pay-to-win system.
+
+        Once a player has access to the game, progression and rewards
+        remain part of actually playing the game.
+
+    }
+
+    after_free_to_play {
+
+        purchase_price = "$0"
+
+        cash_shop_introduced = FALSE
+        microtransaction_loop_introduced = FALSE
+        real_money_in_game_economy_introduced = FALSE
+
+        The purchase price disappears.
+
+        The game remains the game.
+
+    }
+
+}
+
+========================================================================================================================
+PHYSICAL COPIES
+========================================================================================================================
+
+physical_copies {
+
+    planned_if_viable = TRUE
+
+    pricing_philosophy {
+
+        Physical copies, if offered, are intended to remain close to
+        manufacturing cost with a modest margin rather than being treated
+        as artificially expensive collector products.
+
+    }
+
+}
+
+========================================================================================================================
+MENU / UI FLOW
+========================================================================================================================
+
+menu_ui {
+
+    demo_startup_flow {
+
+        Launch
+            |
+            v
+        Cyber_Arena_HEX//BREAK_Cover
+            |
+            v
+        HexCore_Gaming_Presentation_And_Logo
+            |
+            v
+        Press_Start
+            |
+            v
+        Select_Loadout
+            |
+            v
+        Select_Map
+            |
+            v
+        Select_Bot_Difficulty
+            |
+            v
+        Play
+
+    }
+
+    pause_menu {
+
+        Resume
+        Change_Map
+        Change_Loadout
+        Change_Bot_Difficulty
+        Settings
+        Developer_Note
+        Quit_Game
+
+    }
+
+    design_goal {
+
+        The demo startup flow should remain simple and allow the player
+        to reach gameplay without unnecessary menu layers.
+
+    }
+
+}
+
+========================================================================================================================
+ACCESSIBILITY
+========================================================================================================================
+
+accessibility {
+
+    settings_categories {
+
+        graphics
+        audio
+        controls
+        colorblind_support
+
+    }
+
+    colorblind_options {
+
+        Off
+        Deuteranopia
+        Protanopia
+        Tritanopia
+        possible_strength_adjustment
+        possible_intensity_adjustment
+
+    }
+
+    rule {
+
+        Important gameplay information should not rely solely on color.
+
+        Cyber_Arena HEX//BREAK can maintain its neon visual identity while
+        still ensuring important combat and objective information remains readable.
+
+    }
+
+}
+
+========================================================================================================================
+DEVELOPER'S NOTE
+========================================================================================================================
+
+developers_note {
+
+    demo_note {
+
+        explains {
+
+            "This is the permanent offline demo"
+            "This build is a development snapshot"
+            "The active game continues to evolve"
+            "Where to find the HexCore Gaming website"
+            "Where to find the Discord"
+            "Future development plans"
+            "The Alpha / full game is actively developed"
+            "VR may eventually be added to the demo"
+
+        }
+
+    }
+
+    alpha_note {
+
+        explains {
+
+            "This is the active version"
+            "Development is ongoing"
+            "Updates will continue"
+            "Features will grow"
+            "Content will expand"
+            "Future systems remain planned"
+
+        }
+
+    }
+
+    future_feature_examples {
+
+        world_destruction
+
+    }
+
+}
+
+========================================================================================================================
+WORLD DESTRUCTION
+========================================================================================================================
+
+world_destruction {
+
+    planned = TRUE
+    required_for_current_demo = FALSE
+    planned_for_full_game = TRUE
+
+    possible_features {
+
+        destructible_structures
+        breakable_cover
+        collapsing_routes
+        dynamically_created_openings
+        debris
+        traversal_changes
+
+    }
+
+    personal_gravity_interaction {
+
+        The personal-gravity system makes destruction particularly important.
+
+        A destructible wall may literally be another player's current floor.
+
+    }
+
+    possible_results {
+
+        remove_cover
+        open_new_route
+        destroy_existing_route
+        drop_player
+        alter_traversal
+        change_personal_gravity
+        change_battlefield_mid_fight
+
+    }
+
+}
+
+========================================================================================================================
+PLAYER OWNERSHIP / LONGEVITY
+========================================================================================================================
+
+player_ownership {
+
+    philosophy {
+
+        Cyber_Arena HEX//BREAK should remain meaningfully playable even
+        if official company infrastructure eventually disappears.
+
+    }
+
+    long_term_support {
+
+        offline_bots
+        player_hosted_matches
+        listen_servers
+        private_hosting
+        LAN_connections
+        direct_connections
+        community_servers
+        potential_dedicated_server_software
+
+    }
+
+    goal {
+
+        Owning Cyber_Arena HEX//BREAK should mean players retain a meaningful
+        ability to continue playing it.
+
+        Official infrastructure should improve the experience.
+
+        It should not be the only thing keeping the game alive.
+
+    }
+
+}
+
+========================================================================================================================
+OVERALL IDENTITY
+========================================================================================================================
+
+identity {
+
+    summary {
+
+        Cyber_Arena HEX//BREAK is a very fast cyber-fantasy arena FPS where
+        mastery of impossible movement, player-relative gravity, combat tools,
+        and HEX//BREAK possession strategy determines the match.
+
+        The arena itself is part of the combat.
+
+    }
+
+    combat_example {
+
+        One player can be racing down a track.
+
+        Another can be running normally along what the first player sees
+        as a vertical wall.
+
+        Another can be upside down on the ceiling.
+
+        All three players experience different personal gravity directions.
+
+        All three feel upright from their own perspective.
+
+        All three can fight each other.
+
+    }
+
+    core_identity_systems {
+
+        extreme_movement
+        player_relative_gravity
+        Hexcore
+        HEX//BREAK
+        Nexus_Ports
+        movement_gadgets
+        firearms
+        medieval_and_melee_weapons
+        magic
+        abilities
+        assassinations
+        Magic_Arm
+        moving_arenas
+        impossible_architecture
+        AI_bots
+        ranked_play
+        Quickplay
+        HEX//FORGE
+        player_created_arenas
+        player_hosted_multiplayer
+        long_term_player_ownership
+
+    }
+
+    final_identity {
+
+        Cyber_Arena HEX//BREAK is designed around a battlefield where
+        learning how to shoot is only one part of mastery.
+
+        Players must also learn how to move through a world where
+        the definition of down belongs to them.
+
+    }
+
+}
+
+========================================================================================================================
+SYSTEM STATUS
+========================================================================================================================
+
+system_status {
+
+    project = "Cyber_Arena HEX//BREAK"
+    developer = "HexCore Gaming"
+
+    arena_network = "IN DEVELOPMENT"
+    personal_gravity = "ACTIVE"
+    hexcore_signal = "DETECTED"
+    HEX//BREAK_protocol = "READY"
+
+    final_command = "ENTER THE ARENA"
+
+}
+
+========================================================================================================================
+END OF PROJECT FILE
+========================================================================================================================
+</script>
+
+<script>
+
+const sourceElement = document.getElementById("source");
+const codeElement = document.getElementById("code");
+const skipButton = document.getElementById("skip");
+const statusElement = document.getElementById("status");
+
+const source = sourceElement.textContent.replace(/^\n/, "");
+
+let index = 0;
+let finished = false;
+let timer = null;
+
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+function classifyLine(line) {
+
+    const trimmed = line.trim();
+
+    if (
+        trimmed.startsWith("====") ||
+        trimmed === "TABLE OF CONTENTS" ||
+        trimmed === "SYSTEM STATUS" ||
+        trimmed === "END OF PROJECT FILE"
+    ) {
+        return "header";
+    }
+
+    if (
+        /^[A-Z0-9][A-Z0-9 \/&\-']+$/.test(trimmed) &&
+        trimmed.length < 90
+    ) {
+        return "header";
+    }
+
+    if (
+        trimmed.endsWith("{") ||
+        trimmed === "}" ||
+        trimmed.startsWith("project ") ||
+        trimmed.startsWith("mode ") ||
+        trimmed.startsWith("world ") ||
+        trimmed.startsWith("creation_system ") ||
+        trimmed.startsWith("development ")
+    ) {
+        return "subheader";
+    }
+
+    if (
+        trimmed.includes("=") &&
+        !trimmed.includes("====")
+    ) {
+        return "key";
+    }
+
+    if (
+        trimmed.startsWith("SYSTEM") ||
+        trimmed.startsWith("STATUS") ||
+        trimmed.startsWith("INITIALIZING") ||
+        trimmed.startsWith("CALIBRATING") ||
+        trimmed.startsWith("LOADING") ||
+        trimmed.startsWith("VERIFYING")
+    ) {
+        return "system";
+    }
+
+    return "";
+}
+
+function render(text, showCursor = true) {
+
+    const lines = text.split("\n");
+
+    codeElement.innerHTML = lines.map((line) => {
+
+        const type = classifyLine(line);
+        const safe = escapeHtml(line);
+
+        return '<span class="line ' + type + '">' + safe + '</span>';
+
+    }).join("");
+
+    if (showCursor) {
+
+        const cursorLine = document.createElement("span");
+        cursorLine.className = "line";
+
+        const cursor = document.createElement("span");
+        cursor.id = "cursor";
+        cursor.textContent = "|";
+
+        cursorLine.appendChild(cursor);
+        codeElement.appendChild(cursorLine);
+
+    }
+
+}
+
+function typingStep() {
+
+    if (finished) {
+        return;
+    }
+
+    if (index >= source.length) {
+
+        finishTyping();
+        return;
+
+    }
+
+    let chunkSize = 9;
+
+    const current = source[index];
+
+    if (current === "\n") {
+        chunkSize = 1;
+    }
+
+    index = Math.min(index + chunkSize, source.length);
+
+    render(source.slice(0, index), true);
+
+    if (index % 180 < chunkSize) {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    timer = setTimeout(typingStep, 4);
+
+}
+
+function finishTyping() {
+
+    finished = true;
+
+    if (timer) {
+        clearTimeout(timer);
+    }
+
+    index = source.length;
+
+    render(source, false);
+
+    statusElement.textContent =
+        "HEXCORE GAMING // READ ONLY PROJECT DATABASE // FILE LOADED";
+
+    skipButton.textContent = "FILE LOADED";
+    skipButton.disabled = true;
+
+}
+
+skipButton.addEventListener("click", finishTyping);
+
+render("", true);
+
+setTimeout(() => {
+
+    statusElement.textContent =
+        "HEXCORE GAMING // ACCESSING CYBER_ARENA HEX//BREAK...";
+
+    typingStep();
+
+}, 450);
+
+</script>
+
+</body>
+</html>
